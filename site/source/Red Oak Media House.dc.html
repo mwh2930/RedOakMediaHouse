@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/industry-fd0ff17c-047e-43fb-8c9d-21dbf13631fa/styles.css">
+<script src="_ds/industry-fd0ff17c-047e-43fb-8c9d-21dbf13631fa/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: #000; color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; }
+  * { box-sizing: border-box; }
+  input, textarea, button { font: inherit; }
+  a { color: #0a84ff; text-underline-offset: 3px; }
+  a:hover { color: #409cff; }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid #0a84ff; outline-offset: 2px; }
+  ::selection { background: rgba(10,132,255,0.35); }
+  ::placeholder { color: rgba(235,235,245,0.34); }
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="200" fill="#0b0b0c"></rect><rect x="96" y="52" width="128" height="96" rx="26" fill="none" stroke="#d0121f" stroke-width="9"></rect><text x="160" y="115" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" font-size="44" font-weight="600" fill="#f5f5f7">RO</text></svg></template>
+
+<div style="background:#000;color:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Helvetica,sans-serif;font-size:15px;line-height:1.55">
+
+  <div style="position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:40px;height:66px;padding:0 32px;background:rgba(0,0,0,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,0.1)">
+    <img src="assets/red-oak-logo-reversed.png" alt="Red Oak Media House" style="height:38px;width:auto;display:block">
+    <div style="display:flex;align-items:center;gap:26px;font-size:13px">
+      <a href="#build" style="text-decoration:none;color:rgba(235,235,245,0.62)" style-hover="color:#f5f5f7">What we build</a>
+      <a href="#promise" style="text-decoration:none;color:rgba(235,235,245,0.62)" style-hover="color:#f5f5f7">The promise</a>
+      <a href="#contact" style="text-decoration:none;color:rgba(235,235,245,0.62)" style-hover="color:#f5f5f7">Contact</a>
+      <a href="#contact" style="text-decoration:none;display:inline-flex;align-items:center;padding:6px 14px;border-radius:980px;background:#0a84ff;color:#fff;font-size:13px;font-weight:500" style-hover="background:#409cff">Start a project</a>
+    </div>
+  </div>
+
+  <div style="padding:112px 40px 0;text-align:center">
+    <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity 0.7s ease,transform 0.7s ease">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.02em;color:rgba(235,235,245,0.5);margin-bottom:18px">iOS · SwiftUI › App Store</div>
+      <h1 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:100px;font-weight:600;line-height:1;letter-spacing:-0.035em;margin:0 auto 22px;max-width:14ch">The first version, done right.</h1>
+      <p style="font-size:21px;line-height:1.5;color:rgba(235,235,245,0.62);max-width:60ch;margin:0 auto 34px;text-wrap:pretty">Red Oak Media House is a boutique studio working inside the Apple ecosystem. We take on a small number of first-version iOS apps each year and build them in SwiftUI — from an empty repository to App Store review.</p>
+      <div style="display:flex;justify-content:center;margin-bottom:16px">
+        <a href="#contact" style="text-decoration:none;display:inline-flex;align-items:center;padding:14px 30px;border-radius:980px;background:#0a84ff;color:#fff;font-size:17px;font-weight:500" style-hover="background:#409cff">Start a project</a>
+      </div>
+      <sc-if value="{{ showHigNote }}" hint-placeholder-val="{{ true }}">
+        <div style="font-size:13px;color:rgba(235,235,245,0.38);margin-bottom:64px">Every interface follows Apple's Human Interface Guidelines.</div>
+      </sc-if>
+    </div>
+
+    <div data-reveal="" style="opacity:0;transform:translateY(22px);transition:opacity 0.8s ease 0.05s,transform 0.8s ease 0.05s;max-width:1040px;margin:0 auto;border-radius:26px;background:#1c1c1e;border:1px solid rgba(255,255,255,0.08);padding:12px">
+      <img src="assets/hero-iphone.png" alt="The Red Oak app on an iPhone home screen" style="display:block;width:100%;height:auto;border-radius:16px">
+    </div>
+
+    <div data-reveal="" style="opacity:0;transform:translateY(12px);transition:opacity 0.6s ease 0.1s,transform 0.6s ease 0.1s;display:flex;justify-content:center;gap:44px;flex-wrap:wrap;padding:34px 0 0;color:rgba(235,235,245,0.45)">
+      <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoStack }}SwiftUI</span>
+      <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoData }}SwiftData</span>
+      <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoSend }}TestFlight</span>
+      <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoUpload }}App Store Connect</span>
+    </div>
+  </div>
+
+  <div id="build" style="padding:104px 40px 88px">
+    <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity 0.7s ease,transform 0.7s ease;text-align:center;max-width:56ch;margin:0 auto 52px">
+      <h2 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:56px;font-weight:600;line-height:1.04;letter-spacing:-0.028em;margin:0 0 14px">Four things, done properly</h2>
+      <p style="font-size:19px;color:rgba(235,235,245,0.62);margin:0;text-wrap:pretty">Everything is designed and built by the same two people. Nothing is subcontracted, and nothing is templated.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1040px;margin:0 auto">
+      <div data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;background:#1c1c1e;border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:34px 34px 36px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;color:rgba(235,235,245,0.55)">
+          {{ icoPhone }}
+          <h3 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.018em;margin:0;color:#f5f5f7">First-version iOS apps</h3>
+        </div>
+        <p style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.62);margin:0;text-wrap:pretty">The first real version of your product, in SwiftUI. Architecture, interface and App Store submission handled by the people who designed it.</p>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease 0.05s,transform 0.7s ease 0.05s;background:#1c1c1e;border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:34px 34px 36px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;color:rgba(235,235,245,0.55)">
+          {{ icoRefresh }}
+          <h3 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.018em;margin:0;color:#f5f5f7">Modernisation</h3>
+        </div>
+        <p style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.62);margin:0;text-wrap:pretty">An older app brought onto current iOS. SwiftUI where it earns its place, and an interface that no longer looks its age.</p>
+      </div>
+      <sc-if value="{{ includeMarketingSites }}" hint-placeholder-val="{{ true }}">
+        <div data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;background:#1c1c1e;border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:34px 34px 36px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;color:rgba(235,235,245,0.55)">
+            {{ icoGlobe }}
+            <h3 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.018em;margin:0;color:#f5f5f7">Websites</h3>
+          </div>
+          <p style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.62);margin:0;text-wrap:pretty">One page that explains the business and takes a booking. Fast, accessible, and yours to edit without calling us.</p>
+        </div>
+      </sc-if>
+      <div data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease 0.05s,transform 0.7s ease 0.05s;background:#1c1c1e;border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:34px 34px 36px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;color:rgba(235,235,245,0.55)">
+          {{ icoGrid }}
+          <h3 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.018em;margin:0;color:#f5f5f7">Interface systems</h3>
+        </div>
+        <p style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.62);margin:0;text-wrap:pretty">A type scale, a colour set and components your own developers can build from after we hand the work over.</p>
+      </div>
+    </div>
+  </div>
+
+  <div data-reveal="" style="opacity:0;transform:translateY(14px);transition:opacity 0.7s ease,transform 0.7s ease;padding:0 40px">
+    <div style="max-width:1040px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+      <span style="font-size:13px;font-weight:600;color:rgba(235,235,245,0.5)">Built for</span>
+      <div style="display:flex;align-items:center;gap:40px;flex-wrap:wrap;color:rgba(235,235,245,0.45)">
+        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoPhone }}iPhone</span>
+        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoTablet }}iPad</span>
+        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoLaptop }}Mac</span>
+        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoWatch }}Apple Watch</span>
+        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoVision }}Apple Vision Pro</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="promise" style="padding:0 40px 104px">
+    <div data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;max-width:1040px;margin:0 auto;padding-top:88px;text-align:center">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.02em;color:rgba(235,235,245,0.5);margin-bottom:18px">How we work with you</div>
+      <h2 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:64px;font-weight:600;line-height:1.02;letter-spacing:-0.032em;margin:0 auto 18px;max-width:20ch">One price, agreed before we start.</h2>
+      <p style="font-size:20px;line-height:1.55;color:rgba(235,235,245,0.62);max-width:60ch;margin:0 auto 64px;text-wrap:pretty">Scope, price and delivery date are settled in the first week and written down. If we misjudge the work, that is our problem — not a change order sent to you in month three.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;text-align:left">
+        <div style="padding:0 32px 0 0">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;color:rgba(235,235,245,0.55)">
+            {{ icoDoc }}
+            <div style="font-size:22px;font-weight:600;letter-spacing:-0.015em;color:#f5f5f7">Scope in writing</div>
+          </div>
+          <div style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.55)">Every screen and every rule listed before a line of code is written.</div>
+        </div>
+        <div style="padding:0 32px;border-left:1px solid rgba(255,255,255,0.1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;color:rgba(235,235,245,0.55)">
+            {{ icoLock }}
+            <div style="font-size:22px;font-weight:600;letter-spacing:-0.015em;color:#f5f5f7">A fixed price</div>
+          </div>
+          <div style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.55)">One number for the whole build. No hourly billing, no estimates that drift.</div>
+        </div>
+        <div style="padding:0 0 0 32px;border-left:1px solid rgba(255,255,255,0.1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;color:rgba(235,235,245,0.55)">
+            {{ icoDate }}
+            <div style="font-size:22px;font-weight:600;letter-spacing:-0.015em;color:#f5f5f7">A date we both signed</div>
+          </div>
+          <div style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.55)">Submission to App Store review on the day agreed in week one.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact" data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;padding:0 40px 104px">
+    <div style="max-width:640px;margin:0 auto;text-align:center">
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;color:rgba(235,235,245,0.55)">
+        {{ icoMail }}
+        <h2 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:54px;font-weight:600;line-height:1.04;letter-spacing:-0.028em;margin:0;color:#f5f5f7">Start a project</h2>
+      </div>
+      <p style="font-size:19px;color:rgba(235,235,245,0.62);margin:0 0 40px;text-wrap:pretty">Tell us what you are building. If it is a fit, you get a written scope and a fixed price within a week. If it is not, we will say so and point you somewhere better.</p>
+    </div>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ send }}" style="max-width:640px;margin:0 auto;display:grid;gap:16px;text-align:left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <input type="text" placeholder="Name" style="border:1px solid rgba(255,255,255,0.12);border-radius:12px;background:#1c1c1e;padding:14px 16px;font-size:16px;color:#f5f5f7">
+          <input type="email" placeholder="Email" style="border:1px solid rgba(255,255,255,0.12);border-radius:12px;background:#1c1c1e;padding:14px 16px;font-size:16px;color:#f5f5f7">
+        </div>
+        <textarea rows="4" placeholder="What are you building? A sentence or two is plenty." style="border:1px solid rgba(255,255,255,0.12);border-radius:12px;background:#1c1c1e;padding:14px 16px;font-size:16px;color:#f5f5f7;resize:vertical"></textarea>
+        <sc-if value="{{ showBudgetBands }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);border-radius:12px;padding:4px">
+            <span style="flex:1;text-align:center;padding:9px 8px;border-radius:9px;background:#3a3a3c;font-size:14px;font-weight:500;color:#f5f5f7">Under 25k</span>
+            <span style="flex:1;text-align:center;padding:9px 8px;border-radius:9px;font-size:14px;color:rgba(235,235,245,0.6)">25k – 60k</span>
+            <span style="flex:1;text-align:center;padding:9px 8px;border-radius:9px;font-size:14px;color:rgba(235,235,245,0.6)">60k +</span>
+            <span style="flex:1;text-align:center;padding:9px 8px;border-radius:9px;font-size:14px;color:rgba(235,235,245,0.6)">Not sure yet</span>
+          </div>
+        </sc-if>
+        <button type="submit" style="justify-self:center;margin-top:6px;border:0;border-radius:980px;background:#0a84ff;color:#fff;padding:15px 34px;font-size:17px;font-weight:500;cursor:pointer" style-hover="background:#409cff" style-active="background:#0060df">Send it over</button>
+        <div style="text-align:center;font-size:13px;color:rgba(235,235,245,0.42)">Support@redoakmediahouse.com · Richmond, Virginia</div>
+      </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:640px;margin:0 auto;background:#1c1c1e;border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:44px;text-align:center;display:grid;gap:10px">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.02em;color:rgba(235,235,245,0.5)">Received</div>
+        <div style="font-size:30px;font-weight:600;letter-spacing:-0.024em">Thank you — we read every one.</div>
+        <div style="font-size:16px;color:rgba(235,235,245,0.62)">You will hear from one of us within one business day.</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:32px;padding:24px 40px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(235,235,245,0.38)">
+    <span style="display:flex;align-items:center;gap:10px"><img src="assets/red-oak-mark-reversed.png" alt="Red Oak Media House" style="height:24px;width:auto;display:block">Red Oak Media House · Richmond, Virginia</span>
+    <a href="mailto:Support@redoakmediahouse.com" style="text-decoration:none">Support@redoakmediahouse.com</a>
+    <span>© 2026</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;includeMarketingSites&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;showBudgetBands&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;showHigNote&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  state = { sent: false };
+
+  componentDidMount() {
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        en.target.style.opacity = '1';
+        en.target.style.transform = 'none';
+        en.target.setAttribute('data-shown', '');
+        this.io.unobserve(en.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+    this.watch();
+    if (!('IntersectionObserver' in window)) this.revealAll();
+  }
+  componentDidUpdate() { this.watch(); }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+  watch() {
+    if (!this.io) return;
+    document.querySelectorAll('[data-reveal]:not([data-shown])').forEach((el) => this.io.observe(el));
+  }
+  revealAll() {
+    document.querySelectorAll('[data-reveal]:not([data-shown])').forEach((el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.setAttribute('data-shown', '');
+    });
+  }
+
+  icon(paths) {
+    return React.createElement('svg', {
+      viewBox: '0 0 24 24', width: 22, height: 22, fill: 'none', stroke: 'currentColor',
+      strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round',
+      style: { display: 'block', flex: '0 0 auto' }
+    }, paths.map((d, i) => React.createElement('path', { key: i, d: d })));
+  }
+
+  renderVals() {
+    const p = this.props;
+    const I = (paths) => this.icon(paths);
+    return {
+      icoPhone: I(['M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z', 'M12 18h.01']),
+      icoRefresh: I(['M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8', 'M3 3v5h5']),
+      icoGlobe: I(['M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z', 'M2 12h20', 'M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z']),
+      icoGrid: I(['M3 3h7v7H3z', 'M14 3h7v7h-7z', 'M3 14h7v7H3z', 'M14 14h7v7h-7z']),
+      icoDoc: I(['M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z', 'M14 2v6h6', 'M16 13H8', 'M16 17H8']),
+      icoLock: I(['M5 11h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z', 'M7 11V7a5 5 0 0 1 10 0v4']),
+      icoDate: I(['M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z', 'M16 2v4', 'M8 2v4', 'M3 10h18', 'm9 16 2 2 4-4']),
+      icoMail: I(['M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z', 'm22 7-10 5L2 7']),
+      icoTablet: I(['M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z', 'M11 19h2']),
+      icoLaptop: I(['M5 5h14a1 1 0 0 1 1 1v10H4V6a1 1 0 0 1 1-1z', 'M2 19h20']),
+      icoWatch: I(['M9 6h6a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z', 'M9 3h6', 'M9 21h6']),
+      icoVision: I(['M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v3a4 4 0 0 1-4 4h-1.5L12 15l-2.5 2H8a4 4 0 0 1-4-4z']),
+      icoStack: I(['M9 3h9a1 1 0 0 1 1 1v9', 'M4 7h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z']),
+      icoData: I(['M12 3c4.4 0 8 1.1 8 2.5S16.4 8 12 8 4 6.9 4 5.5 7.6 3 12 3z', 'M4 5.5v13C4 19.9 7.6 21 12 21s8-1.1 8-2.5v-13']),
+      icoSend: I(['M22 2 11 13', 'M22 2 15 22l-4-9-9-4z']),
+      icoUpload: I(['M12 3v10', 'm8 7 4-4 4 4', 'M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4']),
+      includeMarketingSites: p.includeMarketingSites ?? true,
+      showBudgetBands: p.showBudgetBands ?? true,
+      showHigNote: p.showHigNote ?? true,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      send: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
