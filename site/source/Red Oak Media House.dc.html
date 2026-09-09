@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website &amp; iOS App Development | Red Oak Media House</title>
+<meta name="description" content="Red Oak Media House designs and develops websites and Apple iOS applications. Thoughtful design and practical development from Richmond, Virginia.">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -11,248 +13,484 @@
 <link rel="stylesheet" href="_ds/industry-fd0ff17c-047e-43fb-8c9d-21dbf13631fa/styles.css">
 <script src="_ds/industry-fd0ff17c-047e-43fb-8c9d-21dbf13631fa/_ds_bundle.js"></script>
 <style>
-  body { margin: 0; background: #000; color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; }
-  * { box-sizing: border-box; }
-  input, textarea, button { font: inherit; }
-  a { color: #0a84ff; text-underline-offset: 3px; }
-  a:hover { color: #409cff; }
-  :focus { outline: none; }
-  :focus-visible { outline: 2px solid #0a84ff; outline-offset: 2px; }
-  ::selection { background: rgba(10,132,255,0.35); }
-  ::placeholder { color: rgba(235,235,245,0.34); }
+  :root { color-scheme: dark; --ink:#f5f5f7; --muted:#b6b6bd; --red:#d0121f; --red-light:#ff6570; --bg:#0b0b0c; --surface:#151517; --line:#303034; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:7rem; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:'SF Pro Text',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,sans-serif; -webkit-font-smoothing:antialiased; font-size:16px; line-height:1.6; }
+  h1,h2,h3,p,figure { margin:0; }
+  h1,h2,h3 { text-wrap:balance; font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,sans-serif; font-optical-sizing:auto; }
+  a { color:inherit; text-underline-offset:.25em; }
+  a:hover { color:var(--red-light); }
+  button,input,textarea { font:inherit; }
+  button,a,input,textarea { -webkit-tap-highlight-color:transparent; }
+  :focus-visible { outline:3px solid var(--red-light); outline-offset:5px; }
+  ::selection { background:#8d1724; color:#fff; }
+  .wrap { width:min(1180px,calc(100% - 5rem)); margin-inline:auto; }
+  .muted { color:var(--muted); }
+  .skip-link { position:fixed; left:1rem; top:1rem; z-index:20; padding:.75rem 1rem; background:var(--ink); color:var(--bg); transform:translateY(-180%); }
+  .skip-link:focus { transform:translateY(0); }
+  .site-header { position:sticky; top:0; z-index:5; border-bottom:1px solid var(--line); background:rgba(11,11,12,.95); }
+  .header-inner { min-height:88px; display:flex; justify-content:space-between; align-items:center; gap:2rem; padding-block:1rem; }
+  .brand { display:inline-flex; flex-shrink:0; }
+  .brand img { display:block; width:166px; max-width:100%; height:auto; }
+  .site-nav { display:flex; align-items:center; gap:1.75rem; flex-wrap:wrap; font-size:.875rem; }
+  .site-nav a { text-decoration:none; }
+  .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:.75rem 1.3rem; gap:.75rem; border:1px solid var(--red); border-radius:6px; background:var(--red); color:#fff; font-size:1rem; font-weight:600; text-decoration:none; cursor:pointer; transition:background .2s; }
+  .button:hover { background:#b6101c; border-color:#b6101c; color:#fff; }
+  .button.secondary { border-color:var(--line); background:transparent; }
+  .button.secondary:hover { border-color:var(--muted); }
+  .site-nav .button { min-height:44px; font-size:.875rem; }
+  .eyebrow { font-size:.875rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--red-light); }
+  .hero { display:grid; grid-template-columns:1.08fr 1fr; gap:3.5rem; align-items:center; padding-block:6.5rem 4.5rem; }
+  h1 { font-size:clamp(2.7rem,5.3vw,4.75rem); font-weight:300; line-height:1.06; letter-spacing:-.045em; margin-block:1.4rem 1.8rem; }
+  h1 { color:#e7ecf2; }
+  h1 span { display:block; }
+  @supports ((background-clip:text) or (-webkit-background-clip:text)) {
+    h1 { background:linear-gradient(168deg,#ffffff 8%,#dce3eb 34%,#a4afbe 53%,#f1f4f8 75%,#bdc8d5 98%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  }
+  .hero-copy > p { font-size:1.125rem; color:var(--muted); max-width:48ch; }
+  .actions { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; }
+  .section { padding-block:6rem; }
+  .section-heading { display:grid; grid-template-columns:1.1fr 1fr; align-items:end; gap:3rem; margin-bottom:2.75rem; }
+  h2 { font-size:clamp(2rem,3.9vw,3.4rem); line-height:1.1; font-weight:400; letter-spacing:-.035em; }
+  .section-heading .eyebrow { margin-bottom:1rem; }
+  .section-heading > p { color:var(--muted); max-width:46ch; font-size:1.0625rem; }
+  .services { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+  .service { padding:2rem; border:1px solid var(--line); border-radius:10px; background:var(--surface); }
+  .service-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:1.6rem; }
+  .service-icon { display:flex; color:var(--red-light); }
+  .service-number { color:var(--muted); font-size:.8125rem; font-variant-numeric:tabular-nums; }
+  h3 { font-size:1.5rem; font-weight:500; line-height:1.25; letter-spacing:-.02em; }
+  .service p { margin-top:.9rem; color:var(--muted); max-width:47ch; }
+  .service .service-detail { margin-top:1.5rem; font-size:.875rem; color:var(--ink); }
+  .text-link { display:inline-flex; align-items:center; min-height:44px; gap:.75rem; font-weight:600; }
+  .process { display:grid; grid-template-columns:repeat(4,1fr); gap:1.75rem; list-style:none; padding:0; margin:0; }
+  .process li { border-top:1px solid var(--line); padding-top:1.4rem; min-width:0; }
+  .process .step { display:block; color:var(--red-light); font-size:.875rem; margin-bottom:1.5rem; }
+  .process h3 { font-size:1.25rem; }
+  .process p { margin-top:.85rem; color:var(--muted); }
+  .contact { background:var(--surface); border-top:1px solid var(--line); }
+  .contact-inner { display:grid; grid-template-columns:.85fr 1.15fr; gap:5rem; padding-block:5rem; }
+  .contact-copy .eyebrow { margin-bottom:1rem; }
+  .contact-copy p { color:var(--muted); margin-block:1.5rem; }
+  .contact-copy a { overflow-wrap:anywhere; }
+  .project-form { display:grid; gap:1.25rem; min-width:0; }
+  .field-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .field { display:grid; gap:.5rem; font-size:.875rem; font-weight:500; }
+  input:not([type=radio]),textarea { width:100%; min-width:0; color:var(--ink); background:var(--bg); border:1px solid #55555d; border-radius:6px; padding:.8rem .9rem; font-size:1rem; font-weight:400; }
+  textarea { resize:vertical; min-height:130px; }
+  ::placeholder { color:#92929c; opacity:1; }
+  fieldset { margin:0; padding:0; border:0; min-width:0; }
+  legend { padding:0; margin-bottom:.6rem; font-size:.875rem; font-weight:500; }
+  .project-options { display:flex; flex-wrap:wrap; gap:.65rem; }
+  .project-option { display:flex; gap:.6rem; align-items:center; border:1px solid #55555d; border-radius:6px; padding:.7rem .9rem; min-height:48px; cursor:pointer; font-size:.875rem; }
+  .project-option:has(input:checked) { border-color:var(--red-light); background:#281316; }
+  input[type=radio] { margin:0; width:18px; height:18px; accent-color:var(--red); }
+  .form-help,.draft-status { color:var(--muted); font-size:.875rem; }
+  .draft-status a { color:var(--ink); }
+  .project-form .button { justify-self:start; }
+  .site-footer { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem 2rem; padding-block:1.75rem; font-size:.875rem; color:var(--muted); }
+  .footer-brand { display:flex; align-items:center; gap:.8rem; }
+  .footer-brand img { width:27px; height:auto; }
+  @media (max-width:960px) {
+    .hero { gap:2rem; padding-top:4rem; }
+    .site-nav { gap:1rem; }
+    .process { grid-template-columns:1fr 1fr; gap:2rem; }
+    .contact-inner { gap:2.5rem; }
+  }
+  @media (max-width:720px) {
+    html { scroll-padding-top:2rem; }
+    .wrap { width:calc(100% - 2.5rem); }
+    .site-header { position:relative; }
+    .header-inner { flex-wrap:wrap; gap:1rem; padding-block:1.2rem; }
+    .brand img { width:150px; }
+    .site-nav { width:100%; gap:.5rem 1.2rem; justify-content:flex-start; }
+    .site-nav a { display:inline-flex; align-items:center; min-height:44px; }
+    .site-nav .button { margin-left:auto; }
+    .hero { grid-template-columns:1fr; gap:2.5rem; padding-block:3rem; }
+    h1 { font-size:clamp(2.6rem,9vw,4rem); max-width:15ch; }
+    .section { padding-block:3.5rem; }
+    .section-heading,.services,.contact-inner { grid-template-columns:1fr; }
+    .section-heading { gap:1.2rem; margin-bottom:2rem; }
+    .service { padding:1.5rem; }
+    .contact-inner { gap:2rem; padding-block:3rem; }
+  }
+  @media (max-width:420px) {
+    .site-nav { gap:.4rem 1rem; }
+    .site-nav .button { margin-left:0; }
+    .field-row,.process { grid-template-columns:1fr; }
+    .actions .button { width:100%; }
+    .process .step { margin-bottom:.75rem; }
+  }
+  @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none !important; } }
+
+  .hero-diagram { position:relative; min-width:0; padding:1.5rem; border:1px solid #42474f; border-radius:20px; background:linear-gradient(145deg,#24282f 0%,#15171c 42%,#111318 75%,#20252b 100%); box-shadow:inset 0 1px 0 #ffffff16,0 24px 65px #0005; }
+  .diagram-topline { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .diagram-label { color:#cdd4df; font-size:.875rem; letter-spacing:.01em; }
+  .motion-control { min-height:44px; min-width:58px; color:#cbd2dd; background:#ffffff07; border:1px solid #ffffff1f; border-radius:6px; padding:.4rem .6rem; cursor:pointer; font-size:.875rem; }
+  .motion-control:hover { color:#fff; border-color:#a4afbe; }
+  .diagram-canvas { height:305px; position:relative; margin-block:1.4rem 1rem; }
+  .diagram-routes { position:absolute; width:100%; height:100%; inset:0; overflow:visible; }
+  .route-base { stroke:#454c59; stroke-width:1.5; vector-effect:non-scaling-stroke; }
+  .route-flow { stroke:#d1dbe8; stroke-width:2; stroke-linecap:round; stroke-dasharray:7 15; vector-effect:non-scaling-stroke; animation:signal-flow 2.2s linear infinite; opacity:0; transition:opacity .35s; }
+  .route-trunk { opacity:.85; }
+  .hero-diagram[data-mode="web"] .route-web,.hero-diagram[data-mode="ios"] .route-ios { opacity:.9; }
+  .diagram-node { position:absolute; display:flex; align-items:center; justify-content:center; gap:.6rem; border:1px solid #505762; border-radius:10px; color:#e6ebf1; background:linear-gradient(150deg,#343a44,#20242c 55%,#282e37); box-shadow:inset 0 1px 0 #ffffff12,0 5px 15px #0004; font-size:.875rem; }
+  .idea-node { left:26%; top:8px; width:48%; height:52px; }
+  .node-dot { width:6px; height:6px; background:#d9e2ee; border-radius:50%; box-shadow:0 0 10px #d9e2ee55; }
+  .core-node { left:14%; top:110px; width:72%; height:64px; gap:.8rem; }
+  .core-mark { display:grid; place-items:center; width:35px; height:35px; border:1px solid #ee687277; border-radius:9px; color:#ff8c94; background:#381f26; font-weight:600; letter-spacing:-.04em; }
+  .core-label { display:block; color:#b5bfcc; font-size:.75rem; letter-spacing:.13em; line-height:1.4; }
+  .core-node strong { font-size:1rem; font-weight:500; }
+  .output-node { width:44%; top:238px; height:60px; color:#abb4c2; border-color:#3f4550; transition:border-color .3s,color .3s,box-shadow .3s; }
+  .web-node { left:3%; }
+  .ios-node { right:3%; }
+  .output-icon { display:flex; }
+  .output-icon svg { width:19px; height:19px; }
+  .port-light { position:absolute; width:5px; height:5px; top:-3px; left:calc(50% - 2.5px); border-radius:50%; background:#647082; }
+  .hero-diagram[data-mode="web"] .web-node,.hero-diagram[data-mode="ios"] .ios-node { border-color:#b6c5d9; color:#fff; box-shadow:inset 0 1px 0 #ffffff1f,0 0 22px #8ba7d01a; }
+  .hero-diagram[data-mode="web"] .web-node .port-light,.hero-diagram[data-mode="ios"] .ios-node .port-light { background:#e4ebf5; box-shadow:0 0 9px #bdd4f5; }
+  .diagram-platforms { display:grid; grid-template-columns:1fr 1fr; padding:4px; border:1px solid #424852; border-radius:9px; background:#0b0d11; }
+  .diagram-platforms button { min-height:44px; color:#b6c0cd; border:1px solid transparent; background:transparent; border-radius:6px; font-size:.875rem; cursor:pointer; padding:.5rem; }
+  .diagram-platforms button[aria-pressed="true"] { color:#f5f7fb; border-color:#5c6675; background:linear-gradient(#3b4350,#242b35); box-shadow:inset 0 1px 0 #ffffff18; }
+  .diagram-description { margin-top:1rem; min-height:4.8em; color:#bfc8d6; font-size:.875rem; line-height:1.6; }
+  .hero-diagram[data-motion="paused"] .route-flow { animation-play-state:paused; }
+  @keyframes signal-flow { to { stroke-dashoffset:-44; } }
+  @media (max-width:420px) { .hero-diagram { padding:1rem; } .diagram-label { max-width:13ch; } .output-node { gap:.4rem; } }
+  @media (prefers-reduced-motion:reduce) { .route-flow { animation:none; } }
+  @media (forced-colors:active) { h1 { background:none; color:CanvasText; -webkit-text-fill-color:CanvasText; } .diagram-node,.diagram-platforms button[aria-pressed="true"] { border-color:CanvasText; } .route-base,.route-flow { stroke:CanvasText; } }
+
+  .learning-points { margin:1.5rem 0 0; border-top:1px solid var(--line); }
+  .learning-points > div { display:grid; grid-template-columns:1fr 1.4fr; gap:1rem; padding-top:1rem; }
+  .learning-points dt { font-size:.875rem; color:#d2dae5; }
+  .learning-points dd { margin:0; color:var(--muted); font-size:.875rem; }
+  .process li { position:relative; border-top:0; padding-top:0; }
+  .process .step { display:grid; place-items:center; width:44px; height:44px; border:1px solid #667080; border-radius:50%; background:linear-gradient(145deg,#343a44,#15181e); color:#e3eaf4; font-size:.875rem; }
+  .process li:not(:last-child)::after { content:""; position:absolute; height:1px; top:22px; left:60px; right:-.75rem; background:linear-gradient(90deg,#626d7d,#30343d); }
+  .step-label { display:block; color:var(--muted); font-size:.875rem; margin-bottom:.5rem; }
+  .motion-control:disabled { cursor:default; color:#cbd2dd; opacity:.8; }
+  @media (max-width:960px) { .process li:nth-child(2)::after { display:none; } }
+  @media (max-width:420px) { .process li::after { display:none; } .learning-points > div { grid-template-columns:1fr; gap:.25rem; } }
+
+  .section-explainer > p { font-size:1.125rem; line-height:1.6; color:var(--muted); max-width:36ch; }
+  .motion-toolbar { display:flex; align-items:center; gap:1rem; margin-top:1.2rem; color:#b6bfcc; font-size:.875rem; }
+  .visual-services { gap:1.5rem; }
+  .visual-service { min-width:0; padding:1.6rem; border-color:#34383f; border-radius:16px; background:linear-gradient(155deg,#1c1e23,#121316 75%); }
+  .visual-service .service-top { margin-bottom:1.2rem; gap:1rem; }
+  .example-label { color:#c6ced9; font-size:.875rem; }
+  .visual-service h3 { font-size:clamp(1.75rem,2.6vw,2.35rem); line-height:1.15; font-weight:400; letter-spacing:-.035em; }
+  .service-figure { margin-top:1.7rem; }
+  .diagram-sheet { position:relative; min-width:0; border:1px solid #39414d; border-radius:12px; background-color:#11151b; background-image:radial-gradient(#899ab429 .7px,transparent .7px); background-size:15px 15px; box-shadow:inset 0 1px 0 #ffffff0a; }
+  .service-figure figcaption { color:#c1cad7; font-size:1rem; line-height:1.6; margin-top:1.2rem; min-height:3.2em; }
+  .service-footnote { display:flex; align-items:center; gap:.7rem; margin-top:1.5rem; padding-top:1.2rem; border-top:1px solid #323840; color:#aeb8c7; font-size:.875rem; }
+  .service-footnote svg { width:18px; height:18px; }
+  .website-stage { min-height:345px; padding:1.5rem .8rem; display:grid; align-items:center; justify-items:center; }
+  .browser-demo { width:100%; border:1px solid #8893a4; border-radius:10px; background:#1a2028; box-shadow:0 12px 28px #0006; overflow:hidden; transition:width .6s cubic-bezier(.22,1,.36,1); }
+  .browser-chrome { display:flex; justify-content:space-between; align-items:center; gap:.5rem; padding:.65rem .7rem; background:linear-gradient(#39414d,#282e38); border-bottom:1px solid #66717f; color:#d6dee8; font-size:.75rem; }
+  .chrome-dots { display:flex; gap:4px; }
+  .chrome-dots i { width:5px; height:5px; border-radius:50%; background:#a3adbc; }
+  .chrome-lock { display:flex; }
+  .chrome-lock svg { width:13px; height:13px; }
+  .browser-page { padding:1rem; }
+  .demo-navigation { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding-bottom:.8rem; border-bottom:1px solid #46505d; font-size:.875rem; color:#c0cad7; }
+  .demo-navigation strong { color:#ecf0f6; font-weight:500; }
+  .demo-layout { display:grid; grid-template-columns:1.2fr 1fr; gap:1rem; padding-top:1rem; }
+  .demo-message,.demo-context { display:flex; flex-direction:column; align-items:flex-start; gap:.7rem; min-width:0; }
+  .demo-overline { font-size:.75rem; letter-spacing:.05em; color:#a9b9cf; }
+  .demo-message > strong { font-weight:400; font-size:1.4rem; letter-spacing:-.03em; line-height:1.12; color:#f0f4fa; }
+  .demo-action { display:flex; gap:1rem; justify-content:space-between; align-items:center; padding:.45rem .65rem; background:#bc2531; border:1px solid #fd85904d; border-radius:5px; color:#fff; font-size:.875rem; }
+  .demo-context { justify-content:center; padding:.8rem; border:1px solid #5b6778; border-radius:6px; background:linear-gradient(140deg,#48526166,#222a36); font-size:.875rem; color:#d3dce8; }
+  .context-lines { display:grid; gap:.3rem; width:100%; }
+  .context-lines i { display:block; background:#69788c; height:2px; width:100%; }
+  .context-lines i:last-child { width:66%; }
+  .website-stage[data-device="mobile"] .browser-demo { width:232px; max-width:100%; }
+  .website-stage[data-device="mobile"] .demo-layout { grid-template-columns:1fr; gap:.8rem; }
+  .website-stage[data-device="mobile"] .demo-message > strong { font-size:1.3rem; }
+  .website-stage[data-device="mobile"] .demo-context { padding:.6rem; width:100%; }
+  .example-controls { display:grid; grid-template-columns:1fr 1fr; gap:4px; background:#0b0e13; border:1px solid #434e5e; border-radius:9px; margin-top:1rem; padding:4px; }
+  .example-controls button { background:transparent; color:#bdc8d8; font-size:.875rem; min-height:44px; border:1px solid transparent; border-radius:6px; padding:.5rem; cursor:pointer; }
+  .example-controls button:hover { background:#242d39; color:#fff; }
+  .example-controls button[aria-pressed="true"] { border-color:#95a6be; background:linear-gradient(#394555,#252e3c); color:#fff; box-shadow:inset 0 1px 0 #fff2; }
+  .three-controls { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .assembly-stage { min-height:310px; padding:1.4rem 1rem; display:flex; flex-direction:column; justify-content:center; }
+  .design-ingredients { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.6rem; }
+  .design-ingredient { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.55rem; min-height:89px; min-width:0; padding:.6rem .3rem; border:1px solid #59667a; border-radius:8px; background:linear-gradient(#303b4b,#1d2634); color:#cbd5e4; font-size:.875rem; }
+  .type-sample { display:block; color:#ecf1f9; font-size:1.8rem; font-weight:300; line-height:1; letter-spacing:-.06em; }
+  .color-sample { display:flex; height:29px; align-items:center; }
+  .color-sample i { width:17px; height:23px; border:1px solid #c5d1e866; border-radius:4px; margin-left:-3px; background:#d93644; transform:rotate(-8deg); }
+  .color-sample i:nth-child(2) { background:#7388a5; transform:none; }
+  .color-sample i:last-child { background:#e0e7f2; transform:rotate(8deg); }
+  .control-sample { display:flex; align-items:center; justify-content:center; min-height:29px; padding:.25rem .5rem; border:1px solid #b0c2dc; border-radius:5px; background:#6a819b38; color:#eef4fc; font-size:.875rem; }
+  .assembly-routes { display:block; width:100%; height:66px; overflow:visible; flex-shrink:0; }
+  .visual-route { stroke:#768aa5; stroke-width:1.3; vector-effect:non-scaling-stroke; }
+  .visual-flow { stroke:#e2edfc; stroke-width:1.7; stroke-dasharray:5 20; stroke-linecap:round; vector-effect:non-scaling-stroke; animation:diagram-current 4s linear infinite; }
+  @keyframes diagram-current { to { stroke-dashoffset:-100; } }
+  [data-motion="paused"] .visual-flow { animation-play-state:paused; }
+  .assembled-interface { border:1px solid #a2b3cd; border-radius:9px; padding:1rem; background:linear-gradient(140deg,#404c5f,#243040); box-shadow:0 8px 23px #0005; }
+  .assembled-top { display:flex; align-items:center; gap:.75rem; }
+  .assembled-mark { width:30px; height:30px; display:grid; place-items:center; border:1px solid #e86e79; border-radius:7px; color:#ffb7be; background:#a1212c38; font-size:.8125rem; }
+  .assembled-top strong { font-size:1.15rem; font-weight:400; color:#f1f5fc; letter-spacing:-.02em; }
+  .assembled-bottom { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.8rem; margin-top:1rem; color:#c1cede; font-size:.875rem; }
+  .assembled-action { padding:.4rem .6rem; border:1px solid #d4dce966; background:#9cb5d224; color:#f0f5fc; border-radius:5px; }
+  .refinement-stage { height:310px; min-height:310px; }
+  .cycle-routes { position:absolute; inset:0; width:100%; height:100%; }
+  .cycle-node { position:absolute; display:flex; flex-direction:column; align-items:center; justify-content:center; width:30%; min-height:59px; gap:.05rem; color:#c5d1e2; font-size:.875rem; border:1px solid #697a92; border-radius:9px; background:linear-gradient(#344257,#1c2738); padding:.45rem; cursor:pointer; transition:background .25s,border-color .25s; }
+  .cycle-node span { color:#a2b6d1; font-size:.75rem; }
+  .cycle-node[aria-pressed="true"] { border-color:#edf3fb; box-shadow:0 0 0 3px #b4cff01a; color:#fff; background:linear-gradient(#4c607c,#31435d); }
+  .cycle-review { top:20px; left:35%; }
+  .cycle-improve { top:214px; left:4%; }
+  .cycle-test { top:214px; right:4%; }
+  .cycle-center { position:absolute; top:113px; left:28%; width:44%; text-align:center; color:#dce7f7; }
+  .cycle-center > span { display:block; font-size:.75rem; letter-spacing:.04em; color:#98acc8; margin-bottom:.4rem; }
+  .cycle-center strong { font-size:1.35rem; line-height:1.2; font-weight:300; letter-spacing:-.025em; }
+  @media (max-width:1050px) and (min-width:721px) { .visual-service { padding:1.25rem; } .app-stage { padding:.8rem; gap:.7rem; } .app-surface { padding:.8rem; } .demo-layout { gap:.7rem; } .browser-page { padding:.8rem; } .demo-message > strong { font-size:1.2rem; } }
+  @media (max-width:720px) { .visual-service { padding:1.5rem; } .visual-service h3 { font-size:2rem; } .example-label { font-size:.8125rem; } }
+  @media (max-width:420px) { .visual-service { padding:1.1rem; } .example-label { max-width:12ch; text-align:right; } .website-stage { min-height:340px; padding:1rem .6rem; } .demo-layout { gap:.55rem; } .browser-page { padding:.7rem; } .demo-message > strong { font-size:1.1rem; } .demo-context { padding:.45rem; } .demo-overline { font-size:.75rem; letter-spacing:0; } .demo-action { padding:.4rem; gap:.5rem; } .demo-navigation { gap:.5rem; } .app-stage { padding:.8rem; gap:.6rem; grid-template-columns:28px minmax(0,1fr); } .journey-node { width:28px; height:28px; } .app-surface { padding:.8rem; } .app-heading { font-size:1.25rem; } .app-option { padding:.55rem .4rem; gap:.4rem; } .app-step-dots { display:none; } .assembly-stage { padding:1.1rem .7rem; } .cycle-center strong { font-size:1.15rem; } .cycle-node { width:34%; } .cycle-review { left:33%; } .cycle-improve { left:2%; } .cycle-test { right:2%; } .cycle-center > span { font-size:.75rem; } }
+  @media (prefers-reduced-motion:reduce) { .visual-flow { animation:none; } .browser-demo { transition:none; } }
+  @media (forced-colors:active) { .visual-route,.visual-flow { stroke:CanvasText; } .cycle-node[aria-pressed="true"],.example-controls button[aria-pressed="true"] { border:2px solid Highlight; } .diagram-sheet { background:Canvas; } }
+
+  @media (max-width:420px) {
+    .three-controls { grid-template-columns:1fr; }
+    .refinement-stage { height:auto; min-height:0; display:grid; grid-template-columns:1fr; gap:1.4rem; padding:1.2rem; }
+    .cycle-routes { display:none; }
+    .cycle-node { position:relative; top:auto; left:auto; right:auto; width:100%; flex-direction:row; gap:.6rem; min-height:48px; }
+    .cycle-node:not(.cycle-test)::after { content:"↓"; position:absolute; top:calc(100% + .05rem); left:calc(50% - .5ch); color:#c4d5ec; }
+    .cycle-test::after { content:"↺"; color:#c4d5ec; }
+    .cycle-center { position:static; width:auto; grid-row:1; }
+    .cycle-center strong { font-size:1.3rem; }
+  }
+
+  .ios-flowchart { display:flex; flex-direction:column; align-items:center; padding:1.5rem 1.25rem; }
+  .flow-node { display:flex; flex-direction:row; align-items:center; justify-content:center; width:68%; min-height:3.2rem; padding:.7rem .65rem; gap:.65rem; border:1px solid #8495af; border-radius:9px; background:linear-gradient(145deg,#3d4b61,#202d41); color:#e3ecf9; cursor:pointer; box-shadow:inset 0 1px 0 #ffffff15,0 4px 16px #0003; transition:border-color .2s,background .2s; }
+  .flow-node:hover { border-color:#dae5f5; background:linear-gradient(145deg,#4a5c78,#2a3a52); }
+  .flow-node[aria-pressed="true"] { border-color:#f4f7fc; background:linear-gradient(145deg,#586c89,#354863); box-shadow:0 0 0 3px #b4d0f422,inset 0 1px 0 #ffffff2b; }
+  .flow-start,.flow-end { border-radius:50px; }
+  .flow-number { font-size:.75rem; color:#b8c9e0; letter-spacing:.05em; }
+  .flow-node strong { font-size:1rem; font-weight:500; }
+  .flow-detail { font-size:.875rem; color:#c8d7eb; }
+  .flow-connector { position:relative; display:flex; justify-content:center; width:100%; height:2.1rem; flex-shrink:0; }
+  .flow-connector svg { width:1.25rem; height:100%; overflow:visible; }
+  .flow-choice-group { position:relative; width:100%; display:flex; flex-direction:column; align-items:center; }
+  .flow-decision-row { position:relative; width:100%; height:7rem; display:flex; align-items:center; justify-content:center; }
+  .flow-decision { position:relative; width:7rem; height:7rem; display:grid; place-items:center; }
+  .flow-decision::before { content:""; position:absolute; width:70%; height:70%; border:1px solid #afc0d9; border-radius:3px; background:linear-gradient(135deg,#3f506b,#27374f); transform:rotate(45deg); box-shadow:0 4px 18px #0003; }
+  .flow-decision > span { position:relative; font-size:.875rem; color:#e2edfc; }
+  .return-out { position:absolute; left:calc(50% + 3.5rem); right:0; top:50%; border-top:1.5px solid #8d9eb7; }
+  .flow-return { position:absolute; right:0; width:16%; top:1.6rem; bottom:3.5rem; border-right:1.5px solid #8d9eb7; border-top:1.5px solid #8d9eb7; border-top-right-radius:12px; pointer-events:none; }
+  .return-arrow { position:absolute; left:-.1rem; top:-.25rem; width:.5rem; height:.5rem; color:#c2d1e7; }
+  .flow-return > span { position:absolute; right:-.6rem; top:56%; transform:translateY(-50%); padding:.35rem .15rem; color:#dce7f7; background:#11151b; font-size:.875rem; line-height:1.3; text-align:center; }
+  .flow-return > span > span { display:block; font-size:.75rem; color:#9eafc8; }
+  .yes-connector { height:2.85rem; }
+  .yes-connector > span { position:absolute; left:calc(50% + .6rem); top:.65rem; font-size:.875rem; color:#dce7f7; }
+  .ios-flowchart .visual-flow { opacity:0; }
+  .ios-flowchart[data-step="choose"] .first-connector .visual-flow,.ios-flowchart[data-step="complete"] .flow-connector .visual-flow { opacity:.9; }
+  .flow-caption > span { display:block; }
+  .flow-caption .flow-summary { margin-bottom:.65rem; color:#e0e8f3; }
+  .flow-caption #app-caption { color:#b5c2d5; font-size:.875rem; }
+  @media (max-width:420px) { .ios-flowchart { padding:1.2rem .8rem; } .flow-node { width:72%; } .flow-return { width:14%; } .flow-decision,.flow-decision-row { height:5.8rem; } .flow-decision { width:5.8rem; } .return-out { left:calc(50% + 2.9rem); } .flow-return { bottom:2.9rem; } .flow-detail { font-size:.875rem; } }
+  @media (forced-colors:active) { .flow-node[aria-pressed="true"] { border:2px solid Highlight; } .flow-decision::before,.return-out,.flow-return { border-color:CanvasText; } .return-arrow { color:CanvasText; } }
+
+  /* Open, compact idea-to-launch flow. */
+  #build { padding-block:3.5rem; }
+  #build .section-heading { margin-bottom:2rem; gap:2rem; }
+  .learning-grid { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:2.5rem; align-items:start; }
+  .lesson { min-width:0; padding:0; border:0; border-radius:0; background:none; }
+  .lesson-top { display:flex; align-items:center; gap:.65rem; margin-bottom:.7rem; color:#c0cad8; font-size:.875rem; letter-spacing:.06em; text-transform:uppercase; }
+  .lesson-number { color:#ff7383; font-variant-numeric:tabular-nums; }
+  .lesson h3 { font-size:clamp(1.4rem,2vw,1.8rem); line-height:1.15; font-weight:400; letter-spacing:-.035em; margin-bottom:.65rem; }
+  .lesson-intro { color:#b9c0cb; font-size:.9375rem; line-height:1.55; }
+  .wireframe { margin:.9rem 0; }
+  .wireframe-canvas { padding:0; background:none; }
+  .wireframe svg { display:block; width:100%; height:auto; max-height:155px; overflow:visible; color:#aabbd1; }
+  .wireframe svg .wf-box { fill:none; stroke:currentColor; stroke-width:1.5; }
+  .wireframe svg .wf-line { fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .wireframe svg .wf-accent { stroke:#ff6677; }
+  .wireframe svg .wf-dash { stroke-dasharray:5 5; }
+  .wireframe svg text { fill:#d2dbe7; font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif; font-size:17px; }
+  .wireframe svg .wf-small { font-size:15px; fill:#afbdcf; }
+  .wireframe figcaption { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+  .foundation-blocks { color:#d4dce7; }
+  .foundation-blocks > span { color:#aab7c8; font-size:.875rem; }
+  .foundation-blocks ul { list-style:none; padding:0; margin:.3rem 0 0; }
+  .foundation-blocks li { font-size:.9375rem; padding:.15rem 0 .15rem .9rem; position:relative; }
+  .foundation-blocks li::before { content:""; position:absolute; left:0; top:.65rem; width:3px; height:3px; background:#ff7383; }
+  .lesson-depth { margin-top:.75rem; }
+  .lesson-depth summary { padding:.4rem 0; cursor:pointer; color:#c8d4e3; font-size:.875rem; }
+  .lesson-depth p { margin-top:.65rem; color:#bac4d1; font-size:.9375rem; line-height:1.6; }
+  .lesson-output span { display:block; color:#aab7c8; font-size:.875rem; }
+  .lesson-fact { margin-top:1rem; }
+  .lesson-fact strong { display:block; color:#ff7383; font-weight:500; font-size:.875rem; }
+  .lesson-source { display:inline-block; margin-top:.75rem; color:#b6c7dc; font-size:.875rem; }
+  @media(max-width:900px) { .learning-grid { grid-template-columns:1fr; gap:2rem; } .lesson { display:grid; grid-template-columns:1fr 1fr; column-gap:1.5rem; } .lesson-top,.lesson h3,.lesson-intro,.foundation-blocks,.lesson-depth { grid-column:1; } .wireframe { grid-column:2; grid-row:1 / span 4; align-self:center; margin:0; } .wireframe svg { max-height:180px; } }
+  @media(max-width:560px) { #build { padding-block:2.5rem; } .lesson { display:block; } .wireframe { margin:.75rem 0; } .wireframe svg { max-height:145px; } .learning-grid { gap:2.5rem; } }
+  @media(forced-colors:active) { .wireframe svg .wf-box,.wireframe svg .wf-line { stroke:CanvasText; } .wireframe svg text { fill:CanvasText; } }
 </style>
 </helmet>
-
-<template id="__bundler_thumbnail"><svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="200" fill="#0b0b0c"></rect><rect x="96" y="52" width="128" height="96" rx="26" fill="none" stroke="#d0121f" stroke-width="9"></rect><text x="160" y="115" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" font-size="44" font-weight="600" fill="#f5f5f7">RO</text></svg></template>
-
-<div style="background:#000;color:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Helvetica,sans-serif;font-size:15px;line-height:1.55">
-
-  <div style="position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:40px;height:66px;padding:0 32px;background:rgba(0,0,0,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,0.1)">
-    <img src="assets/red-oak-logo-reversed.png" alt="Red Oak Media House" style="height:38px;width:auto;display:block">
-    <div style="display:flex;align-items:center;gap:26px;font-size:13px">
-      <a href="#build" style="text-decoration:none;color:rgba(235,235,245,0.62)" style-hover="color:#f5f5f7">What we build</a>
-      <a href="#promise" style="text-decoration:none;color:rgba(235,235,245,0.62)" style-hover="color:#f5f5f7">The promise</a>
-      <a href="#contact" style="text-decoration:none;color:rgba(235,235,245,0.62)" style-hover="color:#f5f5f7">Contact</a>
-      <a href="#contact" style="text-decoration:none;display:inline-flex;align-items:center;padding:6px 14px;border-radius:980px;background:#0a84ff;color:#fff;font-size:13px;font-weight:500" style-hover="background:#409cff">Start a project</a>
-    </div>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#main" aria-label="Red Oak Media House home"><img src="assets/red-oak-logo-reversed.png" alt="Red Oak Media House"></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="button" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
+    </nav>
   </div>
-
-  <div style="padding:112px 40px 0;text-align:center">
-    <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity 0.7s ease,transform 0.7s ease">
-      <div style="font-size:13px;font-weight:600;letter-spacing:0.02em;color:rgba(235,235,245,0.5);margin-bottom:18px">iOS · SwiftUI › App Store</div>
-      <h1 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:100px;font-weight:600;line-height:1;letter-spacing:-0.035em;margin:0 auto 22px;max-width:14ch">The first version, done right.</h1>
-      <p style="font-size:21px;line-height:1.5;color:rgba(235,235,245,0.62);max-width:60ch;margin:0 auto 34px;text-wrap:pretty">Red Oak Media House is a boutique studio working inside the Apple ecosystem. We take on a small number of first-version iOS apps each year and build them in SwiftUI — from an empty repository to App Store review.</p>
-      <div style="display:flex;justify-content:center;margin-bottom:16px">
-        <a href="#contact" style="text-decoration:none;display:inline-flex;align-items:center;padding:14px 30px;border-radius:980px;background:#0a84ff;color:#fff;font-size:17px;font-weight:500" style-hover="background:#409cff">Start a project</a>
+</header>
+<main id="main" tabindex="-1">
+  <section class="wrap hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <div class="eyebrow">Website &amp; iOS application development</div>
+      <h1 id="hero-title">Built for the web.<span>Crafted for iOS.</span></h1>
+      <p>Red Oak Media House designs and develops websites and applications for Apple iOS. Explore how an idea becomes a useful digital experience, from the first question to the finished interface.</p>
+      <div class="actions">
+        <a class="button" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
+        <a class="button secondary" href="#build">Explore what we build</a>
       </div>
-      <sc-if value="{{ showHigNote }}" hint-placeholder-val="{{ true }}">
-        <div style="font-size:13px;color:rgba(235,235,245,0.38);margin-bottom:64px">Every interface follows Apple's Human Interface Guidelines.</div>
-      </sc-if>
     </div>
-
-    <div data-reveal="" style="opacity:0;transform:translateY(22px);transition:opacity 0.8s ease 0.05s,transform 0.8s ease 0.05s;max-width:1040px;margin:0 auto;border-radius:26px;background:#1c1c1e;border:1px solid rgba(255,255,255,0.08);padding:12px">
-      <img src="assets/hero-iphone.png" alt="The Red Oak app on an iPhone home screen" style="display:block;width:100%;height:auto;border-radius:16px">
-    </div>
-
-    <div data-reveal="" style="opacity:0;transform:translateY(12px);transition:opacity 0.6s ease 0.1s,transform 0.6s ease 0.1s;display:flex;justify-content:center;gap:44px;flex-wrap:wrap;padding:34px 0 0;color:rgba(235,235,245,0.45)">
-      <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoStack }}SwiftUI</span>
-      <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoData }}SwiftData</span>
-      <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoSend }}TestFlight</span>
-      <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoUpload }}App Store Connect</span>
-    </div>
-  </div>
-
-  <div id="build" style="padding:104px 40px 88px">
-    <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity 0.7s ease,transform 0.7s ease;text-align:center;max-width:56ch;margin:0 auto 52px">
-      <h2 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:56px;font-weight:600;line-height:1.04;letter-spacing:-0.028em;margin:0 0 14px">Four things, done properly</h2>
-      <p style="font-size:19px;color:rgba(235,235,245,0.62);margin:0;text-wrap:pretty">Everything is designed and built by the same two people. Nothing is subcontracted, and nothing is templated.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1040px;margin:0 auto">
-      <div data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;background:#1c1c1e;border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:34px 34px 36px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;color:rgba(235,235,245,0.55)">
-          {{ icoPhone }}
-          <h3 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.018em;margin:0;color:#f5f5f7">First-version iOS apps</h3>
-        </div>
-        <p style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.62);margin:0;text-wrap:pretty">The first real version of your product, in SwiftUI. Architecture, interface and App Store submission handled by the people who designed it.</p>
+    <figure class="hero-diagram" data-mode="{{ diagramMode }}" data-motion="{{ motionState }}" aria-labelledby="diagram-title">
+      <div class="diagram-topline"><span class="diagram-label" id="diagram-title">From idea to experience</span><button class="motion-control" type="button" onClick="{{ toggleMotion }}" disabled="{{ reducedMotion }}" aria-label="{{ motionControlLabel }}">{{ motionButtonLabel }}</button></div>
+      <div class="diagram-canvas" aria-hidden="true">
+        <svg class="diagram-routes" viewBox="0 0 440 305" preserveAspectRatio="none" fill="none">
+          <path class="route-base" d="M220 60V110 M220 174V190Q220 206 204 206H126Q110 206 110 222V238 M220 174V190Q220 206 236 206H314Q330 206 330 222V238" />
+          <path class="route-flow route-trunk" d="M220 60V110" />
+          <path class="route-flow route-web" d="M220 174V190Q220 206 204 206H126Q110 206 110 222V238" />
+          <path class="route-flow route-ios" d="M220 174V190Q220 206 236 206H314Q330 206 330 222V238" />
+        </svg>
+        <div class="diagram-node idea-node"><span class="node-dot"></span>Your idea</div>
+        <div class="diagram-node core-node"><span class="core-mark">RO</span><span><span class="core-label">RED OAK</span><strong>Design + develop</strong></span></div>
+        <div class="diagram-node output-node web-node"><span class="output-icon">{{ icoGlobe }}</span><span>Website</span><span class="port-light"></span></div>
+        <div class="diagram-node output-node ios-node"><span class="output-icon">{{ icoPhone }}</span><span>iOS app</span><span class="port-light"></span></div>
       </div>
-      <div data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease 0.05s,transform 0.7s ease 0.05s;background:#1c1c1e;border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:34px 34px 36px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;color:rgba(235,235,245,0.55)">
-          {{ icoRefresh }}
-          <h3 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.018em;margin:0;color:#f5f5f7">Modernisation</h3>
-        </div>
-        <p style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.62);margin:0;text-wrap:pretty">An older app brought onto current iOS. SwiftUI where it earns its place, and an interface that no longer looks its age.</p>
+      <div class="diagram-platforms" role="group" aria-label="Explore a development path">
+        <button type="button" onClick="{{ chooseWeb }}" aria-pressed="{{ webSelected }}" aria-controls="diagram-description">Website</button>
+        <button type="button" onClick="{{ chooseIOS }}" aria-pressed="{{ iosSelected }}" aria-controls="diagram-description">iOS application</button>
       </div>
-      <sc-if value="{{ includeMarketingSites }}" hint-placeholder-val="{{ true }}">
-        <div data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;background:#1c1c1e;border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:34px 34px 36px">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;color:rgba(235,235,245,0.55)">
-            {{ icoGlobe }}
-            <h3 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.018em;margin:0;color:#f5f5f7">Websites</h3>
+      <figcaption class="diagram-description" id="diagram-description" aria-live="polite">{{ diagramDescription }}</figcaption>
+    </figure>
+  </section>
+  <section id="build" class="wrap section" data-motion="{{ motionState }}" aria-labelledby="build-title">
+    <div class="section-heading">
+      <div><div class="eyebrow">Websites &amp; applications</div><h2 id="build-title">Your idea.<br>A clear path to launch.</h2></div>
+      <div class="section-explainer"><p>Define what matters. Design how it works. Build and test it for the real world. These are the foundations of a website or application.</p><div class="motion-toolbar"><span>Diagram motion</span><button class="motion-control" type="button" onClick="{{ toggleMotion }}" disabled="{{ reducedMotion }}" aria-label="{{ motionControlLabel }}">{{ motionButtonLabel }}</button></div></div>
+    </div>
+    <ol class="learning-grid">
+      <li class="lesson"><div class="lesson-top"><span class="lesson-number">01</span><span>Define</span></div><h3>Give the idea a purpose.</h3><p class="lesson-intro">Identify who it helps, the problem it solves, and what the first version needs to do.</p><figure class="wireframe"><div class="wireframe-canvas"><svg viewBox="0 0 460 280" preserveAspectRatio="xMidYMid meet" fill="none" aria-hidden="true"><rect class="wf-box" x="20" y="48" width="170" height="65" rx="8"/><text x="39" y="76">The audience</text><path class="wf-line" d="M40 94H164"/><rect class="wf-box" x="20" y="145" width="170" height="65" rx="8"/><text x="39" y="173">The problem</text><path class="wf-line" d="M40 191H157"/><path class="wf-line" d="M190 81H223V129H271 M190 177H223V129 M263 123L271 129L263 135"/><path class="visual-flow" d="M190 81H223V129H271 M190 177H223V129"/><rect class="wf-box" x="284" y="25" width="151" height="210" rx="10"/><text x="304" y="59">Project brief</text><path class="wf-line" d="M284 74H435 M308 100H409 M308 113H395 M308 145H409 M308 158H391"/><rect class="wf-box" x="304" y="182" width="111" height="29" rx="5"/><text x="324" y="202" class="wf-small">The goal</text></svg></div><figcaption>A clear brief turns an idea into a focused project.</figcaption></figure><div class="foundation-blocks"><span>Foundation blocks</span><ul><li>Audience &amp; problem</li><li>Essential features</li><li>Success criteria</li></ul></div><details class="lesson-depth"><summary>How this stage works</summary><p class="lesson-output"><span>The outcome</span>A shared plan for what to build.</p><div class="lesson-fact"><strong>Start with a focused first version</strong><p>Talk to the people the product is for. Prioritize the task that matters most, separate essentials from later ideas, and agree on how you will judge whether it works.</p><a class="lesson-source" href="https://developer.apple.com/tutorials/develop-in-swift/ask-questions">Apple · Defining an app idea ↗</a></div></details></li>
+      <li class="lesson"><div class="lesson-top"><span class="lesson-number">02</span><span>Design</span></div><h3>Map how it should work.</h3><p class="lesson-intro">Turn the plan into a user journey and wireframes, then test whether the next step makes sense.</p><figure class="wireframe"><div class="wireframe-canvas"><svg viewBox="0 0 460 280" preserveAspectRatio="xMidYMid meet" fill="none" aria-hidden="true"><rect class="wf-box" x="12" y="42" width="262" height="176" rx="10"/><path class="wf-line" d="M12 68H274 M29 55h3 M41 55h3 M53 55h3"/><text x="29" y="98">Your content</text><rect class="wf-box" x="29" y="115" width="99" height="66" rx="4"/><path class="wf-line wf-dash" d="M29 115L128 181 M128 115L29 181"/><path class="wf-line" d="M146 118H253 M146 133H242 M146 148H248"/><rect class="wf-box" x="146" y="164" width="91" height="26" rx="4"/><path class="wf-line" d="M274 129H326 M318 123L326 129L318 135"/><path class="visual-flow" d="M274 129H326"/><rect class="wf-box" x="335" y="17" width="111" height="224" rx="16"/><path class="wf-line" d="M373 29H405 M371 229H411"/><text x="347" y="64" class="wf-small">Your content</text><rect class="wf-box" x="348" y="78" width="85" height="56" rx="4"/><path class="wf-line wf-dash" d="M348 78L433 134 M433 78L348 134"/><path class="wf-line" d="M348 151H431 M348 165H420"/><rect class="wf-box" x="348" y="182" width="85" height="28" rx="4"/><text x="49" y="258" class="wf-small">Wide layout</text><text x="337" y="263" class="wf-small">Narrow layout</text></svg></div><figcaption>Wireframes organize the experience across screens.</figcaption></figure><div class="foundation-blocks"><span>Foundation blocks</span><ul><li>Content &amp; navigation</li><li>Wireframes &amp; prototypes</li><li>Responsive &amp; accessible layouts</li></ul></div><details class="lesson-depth"><summary>How this stage works</summary><p class="lesson-output"><span>The outcome</span>A tested direction before development.</p><div class="lesson-fact"><strong>Work out the experience before the details</strong><p>Arrange the information and controls around real tasks. Use prototypes to find confusing steps early. Make room for different screen sizes, larger text, and accessible navigation as the design develops.</p><a class="lesson-source" href="https://developer.apple.com/tutorials/develop-in-swift/welcome-to-app-design">Apple · Prototyping and testing ↗</a></div></details></li>
+      <li class="lesson"><div class="lesson-top"><span class="lesson-number">03</span><span>Build &amp; launch</span></div><h3>Make it ready for real use.</h3><p class="lesson-intro">Develop the website or app, test its behavior, and prepare a release that can improve over time.</p><figure class="wireframe"><div class="wireframe-canvas"><svg viewBox="0 0 460 280" preserveAspectRatio="xMidYMid meet" fill="none" aria-hidden="true"><rect class="wf-box" x="12" y="44" width="124" height="159" rx="10"/><rect class="wf-box" x="168" y="44" width="124" height="159" rx="10"/><rect class="wf-box" x="324" y="44" width="124" height="159" rx="10"/><path class="wf-line" d="M12 70H136 M168 70H292 M324 70H448"/><text x="30" y="62" class="wf-small">Build</text><text x="182" y="62" class="wf-small">Test</text><text x="341" y="62" class="wf-small">Release</text><rect class="wf-box" x="28" y="116" width="92" height="37" rx="6"/><text x="53" y="141">Code</text><rect class="wf-box" x="181" y="120" width="98" height="12" rx="6"/><path class="wf-line wf-accent" d="M188 126H247"/><text x="189" y="158" class="wf-small">Checking…</text><path class="wf-line wf-accent" d="M359 118L376 136L410 99"/><text x="360" y="165">Ready</text><path class="wf-line" d="M136 126H168 M292 126H324 M160 120L168 126L160 132 M316 120L324 126L316 132"/><path class="visual-flow" d="M136 126H168 M292 126H324"/><text x="36" y="240" class="wf-small">Build → validate → release</text></svg></div><figcaption>Build, verify, and prepare the finished experience.</figcaption></figure><div class="foundation-blocks"><span>Foundation blocks</span><ul><li>Code &amp; data</li><li>Testing, security &amp; privacy</li><li>Release &amp; ongoing improvements</li></ul></div><details class="lesson-depth"><summary>How this stage works</summary><p class="lesson-output"><span>The outcome</span>A working product with a path forward.</p><div class="lesson-fact"><strong>Check the whole journey before release</strong><p>Connect the interface to the data and services it needs. Test key tasks, errors, and accessibility; review security and privacy. Prepare hosting or an App Store submission, then use feedback to guide updates.</p><a class="lesson-source" href="https://developer.apple.com/documentation/xcode/testing">Apple · Testing app behavior ↗</a></div></details></li>
+    </ol>
+  </section>
+  <section id="promise" class="wrap section" aria-labelledby="process-title">
+    <div class="section-heading">
+      <div><div class="eyebrow">How we work</div><h2 id="process-title">Four questions.<br>One clear path.</h2></div>
+      <p>Each stage answers a different question. Together, they turn a loose idea into something people can understand and use.</p>
+    </div>
+    <ol class="process">
+      <li><span class="step">01</span><span class="step-label">Define</span><h3>Who is it for?</h3><p>Understand the audience, the problem to solve, and what a useful outcome looks like.</p></li>
+      <li><span class="step">02</span><span class="step-label">Design</span><h3>How should it work?</h3><p>Map the journey. Arrange the content and controls. Make the next step easy to understand.</p></li>
+      <li><span class="step">03</span><span class="step-label">Build</span><h3>How do we make it?</h3><p>Develop the website or iOS application, connecting the design to working behavior.</p></li>
+      <li><span class="step">04</span><span class="step-label">Refine</span><h3>What is ready to launch?</h3><p>Test the experience, resolve the details, and prepare the next steps for release.</p></li>
+    </ol>
+  </section>
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-inner">
+      <div class="contact-copy">
+        <div class="eyebrow">Let's make something useful</div>
+        <h2 id="contact-title">Start a project.</h2>
+        <p>Tell us what you want to build, who it is for, and what you want it to achieve. Start with a website, an iOS app, or an idea we can help you shape.</p>
+        <a href="mailto:Support@redoakmediahouse.com">Support@redoakmediahouse.com</a>
+        <p>Richmond, Virginia</p>
+      </div>
+      <form class="project-form" onSubmit="{{ openEmailDraft }}" aria-describedby="email-help">
+        <fieldset>
+          <legend>What would you like to build?</legend>
+          <div class="project-options">
+            <label class="project-option"><input type="radio" name="projectType" value="Website" required>Website</label>
+            <label class="project-option"><input type="radio" name="projectType" value="iOS application">iOS application</label>
+            <label class="project-option"><input type="radio" name="projectType" value="Both / exploring an idea">Both / exploring</label>
           </div>
-          <p style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.62);margin:0;text-wrap:pretty">One page that explains the business and takes a booking. Fast, accessible, and yours to edit without calling us.</p>
+        </fieldset>
+        <div class="field-row">
+          <label class="field" for="project-name">Name<input id="project-name" name="name" type="text" autocomplete="name" maxlength="120" required></label>
+          <label class="field" for="project-email">Email<input id="project-email" name="email" type="email" autocomplete="email" maxlength="254" required></label>
         </div>
-      </sc-if>
-      <div data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease 0.05s,transform 0.7s ease 0.05s;background:#1c1c1e;border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:34px 34px 36px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;color:rgba(235,235,245,0.55)">
-          {{ icoGrid }}
-          <h3 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.018em;margin:0;color:#f5f5f7">Interface systems</h3>
+        <label class="field" for="project-details">Tell us about your project<textarea id="project-details" name="details" rows="4" maxlength="1800" required placeholder="Your idea, your audience, and what you want to achieve."></textarea></label>
+        <p class="form-help" id="email-help">This opens a draft in your email app. Review and send it there to contact us.</p>
+        <button class="button" type="submit">Open email draft <span aria-hidden="true">↗</span></button>
+        <div role="status" aria-live="polite">
+          <sc-if value="{{ draftOpened }}" hint-placeholder-val="{{ false }}"><p class="draft-status">Finish sending in your email app. If no draft opened, email <a href="mailto:Support@redoakmediahouse.com">Support@redoakmediahouse.com</a> directly. Your details remain above.</p></sc-if>
         </div>
-        <p style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.62);margin:0;text-wrap:pretty">A type scale, a colour set and components your own developers can build from after we hand the work over.</p>
-      </div>
-    </div>
-  </div>
-
-  <div data-reveal="" style="opacity:0;transform:translateY(14px);transition:opacity 0.7s ease,transform 0.7s ease;padding:0 40px">
-    <div style="max-width:1040px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
-      <span style="font-size:13px;font-weight:600;color:rgba(235,235,245,0.5)">Built for</span>
-      <div style="display:flex;align-items:center;gap:40px;flex-wrap:wrap;color:rgba(235,235,245,0.45)">
-        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoPhone }}iPhone</span>
-        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoTablet }}iPad</span>
-        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoLaptop }}Mac</span>
-        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoWatch }}Apple Watch</span>
-        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px">{{ icoVision }}Apple Vision Pro</span>
-      </div>
-    </div>
-  </div>
-
-  <div id="promise" style="padding:0 40px 104px">
-    <div data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;max-width:1040px;margin:0 auto;padding-top:88px;text-align:center">
-      <div style="font-size:13px;font-weight:600;letter-spacing:0.02em;color:rgba(235,235,245,0.5);margin-bottom:18px">How we work with you</div>
-      <h2 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:64px;font-weight:600;line-height:1.02;letter-spacing:-0.032em;margin:0 auto 18px;max-width:20ch">One price, agreed before we start.</h2>
-      <p style="font-size:20px;line-height:1.55;color:rgba(235,235,245,0.62);max-width:60ch;margin:0 auto 64px;text-wrap:pretty">Scope, price and delivery date are settled in the first week and written down. If we misjudge the work, that is our problem — not a change order sent to you in month three.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;text-align:left">
-        <div style="padding:0 32px 0 0">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;color:rgba(235,235,245,0.55)">
-            {{ icoDoc }}
-            <div style="font-size:22px;font-weight:600;letter-spacing:-0.015em;color:#f5f5f7">Scope in writing</div>
-          </div>
-          <div style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.55)">Every screen and every rule listed before a line of code is written.</div>
-        </div>
-        <div style="padding:0 32px;border-left:1px solid rgba(255,255,255,0.1)">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;color:rgba(235,235,245,0.55)">
-            {{ icoLock }}
-            <div style="font-size:22px;font-weight:600;letter-spacing:-0.015em;color:#f5f5f7">A fixed price</div>
-          </div>
-          <div style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.55)">One number for the whole build. No hourly billing, no estimates that drift.</div>
-        </div>
-        <div style="padding:0 0 0 32px;border-left:1px solid rgba(255,255,255,0.1)">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;color:rgba(235,235,245,0.55)">
-            {{ icoDate }}
-            <div style="font-size:22px;font-weight:600;letter-spacing:-0.015em;color:#f5f5f7">A date we both signed</div>
-          </div>
-          <div style="font-size:16px;line-height:1.6;color:rgba(235,235,245,0.55)">Submission to App Store review on the day agreed in week one.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="contact" data-reveal="" style="opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;padding:0 40px 104px">
-    <div style="max-width:640px;margin:0 auto;text-align:center">
-      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;color:rgba(235,235,245,0.55)">
-        {{ icoMail }}
-        <h2 style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,sans-serif;font-size:54px;font-weight:600;line-height:1.04;letter-spacing:-0.028em;margin:0;color:#f5f5f7">Start a project</h2>
-      </div>
-      <p style="font-size:19px;color:rgba(235,235,245,0.62);margin:0 0 40px;text-wrap:pretty">Tell us what you are building. If it is a fit, you get a written scope and a fixed price within a week. If it is not, we will say so and point you somewhere better.</p>
-    </div>
-    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-      <form onSubmit="{{ send }}" style="max-width:640px;margin:0 auto;display:grid;gap:16px;text-align:left">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-          <input type="text" placeholder="Name" style="border:1px solid rgba(255,255,255,0.12);border-radius:12px;background:#1c1c1e;padding:14px 16px;font-size:16px;color:#f5f5f7">
-          <input type="email" placeholder="Email" style="border:1px solid rgba(255,255,255,0.12);border-radius:12px;background:#1c1c1e;padding:14px 16px;font-size:16px;color:#f5f5f7">
-        </div>
-        <textarea rows="4" placeholder="What are you building? A sentence or two is plenty." style="border:1px solid rgba(255,255,255,0.12);border-radius:12px;background:#1c1c1e;padding:14px 16px;font-size:16px;color:#f5f5f7;resize:vertical"></textarea>
-        <sc-if value="{{ showBudgetBands }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);border-radius:12px;padding:4px">
-            <span style="flex:1;text-align:center;padding:9px 8px;border-radius:9px;background:#3a3a3c;font-size:14px;font-weight:500;color:#f5f5f7">Under 25k</span>
-            <span style="flex:1;text-align:center;padding:9px 8px;border-radius:9px;font-size:14px;color:rgba(235,235,245,0.6)">25k – 60k</span>
-            <span style="flex:1;text-align:center;padding:9px 8px;border-radius:9px;font-size:14px;color:rgba(235,235,245,0.6)">60k +</span>
-            <span style="flex:1;text-align:center;padding:9px 8px;border-radius:9px;font-size:14px;color:rgba(235,235,245,0.6)">Not sure yet</span>
-          </div>
-        </sc-if>
-        <button type="submit" style="justify-self:center;margin-top:6px;border:0;border-radius:980px;background:#0a84ff;color:#fff;padding:15px 34px;font-size:17px;font-weight:500;cursor:pointer" style-hover="background:#409cff" style-active="background:#0060df">Send it over</button>
-        <div style="text-align:center;font-size:13px;color:rgba(235,235,245,0.42)">Support@redoakmediahouse.com · Richmond, Virginia</div>
       </form>
-    </sc-if>
-    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-      <div style="max-width:640px;margin:0 auto;background:#1c1c1e;border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:44px;text-align:center;display:grid;gap:10px">
-        <div style="font-size:13px;font-weight:600;letter-spacing:0.02em;color:rgba(235,235,245,0.5)">Received</div>
-        <div style="font-size:30px;font-weight:600;letter-spacing:-0.024em">Thank you — we read every one.</div>
-        <div style="font-size:16px;color:rgba(235,235,245,0.62)">You will hear from one of us within one business day.</div>
-      </div>
-    </sc-if>
-  </div>
-
-  <div style="display:flex;align-items:center;justify-content:space-between;gap:32px;padding:24px 40px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(235,235,245,0.38)">
-    <span style="display:flex;align-items:center;gap:10px"><img src="assets/red-oak-mark-reversed.png" alt="Red Oak Media House" style="height:24px;width:auto;display:block">Red Oak Media House · Richmond, Virginia</span>
-    <a href="mailto:Support@redoakmediahouse.com" style="text-decoration:none">Support@redoakmediahouse.com</a>
-    <span>© 2026</span>
-  </div>
-</div>
+    </div>
+  </section>
+</main>
+<footer class="wrap site-footer">
+  <div class="footer-brand"><img src="assets/red-oak-mark-reversed.png" alt="" width="27" height="27"><span>Red Oak Media House</span></div>
+  <a href="/privacy.html">Privacy Policy</a>
+  <span>© 2026 Red Oak Media House</span>
+</footer>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;includeMarketingSites&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;showBudgetBands&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;showHigNote&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+<script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { sent: false };
+  state = { draftOpened: false, diagramMode: 'web', motionPaused: true, reducedMotion: false };
 
   componentDidMount() {
-    this.io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (!en.isIntersecting) return;
-        en.target.style.opacity = '1';
-        en.target.style.transform = 'none';
-        en.target.setAttribute('data-shown', '');
-        this.io.unobserve(en.target);
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
-    this.watch();
-    if (!('IntersectionObserver' in window)) this.revealAll();
+    this.motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this.onMotionPreference = (event) => this.setState({ motionPaused: event.matches, reducedMotion: event.matches });
+    this.setState({ motionPaused: this.motionQuery.matches, reducedMotion: this.motionQuery.matches });
+    this.motionQuery.addEventListener('change', this.onMotionPreference);
   }
-  componentDidUpdate() { this.watch(); }
-  componentWillUnmount() { if (this.io) this.io.disconnect(); }
-  watch() {
-    if (!this.io) return;
-    document.querySelectorAll('[data-reveal]:not([data-shown])').forEach((el) => this.io.observe(el));
-  }
-  revealAll() {
-    document.querySelectorAll('[data-reveal]:not([data-shown])').forEach((el) => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-      el.setAttribute('data-shown', '');
-    });
+
+  componentWillUnmount() {
+    this.motionQuery?.removeEventListener('change', this.onMotionPreference);
   }
 
   icon(paths) {
     return React.createElement('svg', {
-      viewBox: '0 0 24 24', width: 22, height: 22, fill: 'none', stroke: 'currentColor',
-      strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round',
-      style: { display: 'block', flex: '0 0 auto' }
+      viewBox: '0 0 24 24', width: 24, height: 24, fill: 'none', stroke: 'currentColor',
+      strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': true
     }, paths.map((d, i) => React.createElement('path', { key: i, d: d })));
   }
 
   renderVals() {
-    const p = this.props;
     const I = (paths) => this.icon(paths);
     return {
-      icoPhone: I(['M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z', 'M12 18h.01']),
-      icoRefresh: I(['M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8', 'M3 3v5h5']),
       icoGlobe: I(['M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z', 'M2 12h20', 'M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z']),
+      icoPhone: I(['M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z', 'M12 18h.01']),
       icoGrid: I(['M3 3h7v7H3z', 'M14 3h7v7h-7z', 'M3 14h7v7H3z', 'M14 14h7v7h-7z']),
-      icoDoc: I(['M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z', 'M14 2v6h6', 'M16 13H8', 'M16 17H8']),
-      icoLock: I(['M5 11h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z', 'M7 11V7a5 5 0 0 1 10 0v4']),
-      icoDate: I(['M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z', 'M16 2v4', 'M8 2v4', 'M3 10h18', 'm9 16 2 2 4-4']),
-      icoMail: I(['M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z', 'm22 7-10 5L2 7']),
-      icoTablet: I(['M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z', 'M11 19h2']),
-      icoLaptop: I(['M5 5h14a1 1 0 0 1 1 1v10H4V6a1 1 0 0 1 1-1z', 'M2 19h20']),
-      icoWatch: I(['M9 6h6a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z', 'M9 3h6', 'M9 21h6']),
-      icoVision: I(['M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v3a4 4 0 0 1-4 4h-1.5L12 15l-2.5 2H8a4 4 0 0 1-4-4z']),
-      icoStack: I(['M9 3h9a1 1 0 0 1 1 1v9', 'M4 7h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z']),
-      icoData: I(['M12 3c4.4 0 8 1.1 8 2.5S16.4 8 12 8 4 6.9 4 5.5 7.6 3 12 3z', 'M4 5.5v13C4 19.9 7.6 21 12 21s8-1.1 8-2.5v-13']),
-      icoSend: I(['M22 2 11 13', 'M22 2 15 22l-4-9-9-4z']),
-      icoUpload: I(['M12 3v10', 'm8 7 4-4 4 4', 'M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4']),
-      includeMarketingSites: p.includeMarketingSites ?? true,
-      showBudgetBands: p.showBudgetBands ?? true,
-      showHigNote: p.showHigNote ?? true,
-      sent: this.state.sent,
-      notSent: !this.state.sent,
-      send: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+      icoRefresh: I(['M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8', 'M3 3v5h5']),
+      draftOpened: this.state.draftOpened,
+      diagramMode: this.state.diagramMode,
+      webSelected: this.state.diagramMode === 'web',
+      iosSelected: this.state.diagramMode === 'ios',
+      motionPaused: this.state.motionPaused,
+      motionState: this.state.motionPaused ? 'paused' : 'playing',
+      reducedMotion: this.state.reducedMotion,
+      motionButtonLabel: this.state.reducedMotion ? 'Motion off' : this.state.motionPaused ? 'Play' : 'Pause',
+      motionControlLabel: this.state.reducedMotion ? 'Motion off: reduced motion is enabled on your device' : this.state.motionPaused ? 'Play all diagram animations' : 'Pause all diagram animations',
+      chooseWeb: () => this.setState({ diagramMode: 'web' }),
+      chooseIOS: () => this.setState({ diagramMode: 'ios' }),
+      toggleMotion: () => { if (!this.state.reducedMotion) this.setState({ motionPaused: !this.state.motionPaused }); },
+      diagramDescription: this.state.diagramMode === 'web'
+        ? 'Start with your idea. Shape the content and interface. Build a website people can use in their browser.'
+        : 'Start with your idea. Plan the screens and interactions. Build an application for Apple iOS.', 
+      openEmailDraft: (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        for (const fieldName of ['name', 'email', 'details']) {
+          const input = form.elements.namedItem(fieldName);
+          input.value = input.value.trim();
+        }
+        if (!form.reportValidity()) return;
+        const fields = new FormData(form);
+        const type = String(fields.get('projectType') || 'Project inquiry');
+        const name = String(fields.get('name') || '').trim();
+        const email = String(fields.get('email') || '').trim();
+        const details = String(fields.get('details') || '').trim();
+        if (!name || !email || !details) return;
+        const subject = 'Red Oak project inquiry: ' + type;
+        const body = ['Project: ' + type, 'Name: ' + name, 'Email: ' + email, '', details].join('\r\n');
+        window.location.href = 'mailto:Support@redoakmediahouse.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        this.setState({ draftOpened: true });
+      }
     };
   }
 }

@@ -1,29 +1,34 @@
 # Red Oak Media House — website
 
-## What's here
+An educational, diagrammatic homepage for a website and Apple iOS application development company.
 
-- `index.html` — the whole site in one self-contained file. Logo, hero image, styles and scripts are inlined. This is the file you deploy.
-- `assets/` — the original image files (logo lockup, reversed logo, mark, hero render).
-- `source/` — the editable source: `Red Oak Media House.dc.html` plus its `support.js` runtime. Edit here, not in `index.html`.
+## Edit and build
 
-## Deploy on GitHub Pages
+Edit `source/Red Oak Media House.dc.html`, then run:
 
-1. Push this folder to a public repo.
-2. Settings → Pages → Deploy from a branch → `main` → `/ (root)`.
-3. Live at `yourname.github.io/reponame`.
+```sh
+python3 scripts/build.py
+python3 scripts/validate.py
+node scripts/check-contact.cjs
+```
 
-### Custom domain (GoDaddy)
+The build preserves the existing DC runtime and self-contained export format. It writes `index.html` and `dist/index.html`. Both files contain the same page, scripts and original logo assets. No dependency installation is required.
 
-4. Settings → Pages → Custom domain → enter your domain.
-5. GoDaddy → Domain → DNS: four A records on `@` → 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153. CNAME on `www` → `yourname.github.io`.
-6. Tick Enforce HTTPS once the certificate is issued.
+`source/bundle-shell.html`, `source/bundle-design-system.html` and `source/bundle-assets.json` hold the original export loader and dependencies. `source/support.js` is the existing generated runtime. These are build inputs, not separate public pages. Preview the generated output; the editable DC source still uses export-resolved asset references.
 
-## Deploy on GoDaddy cPanel hosting
+```sh
+python3 -m http.server 8768 --bind 127.0.0.1 --directory dist
+```
 
-Upload `index.html` into `public_html`, replacing the placeholder page.
+## Content and contact
 
-## Notes
+- Company contact: Support@redoakmediahouse.com · Richmond, Virginia.
+- The development section is an open, condensed three-stage flow: Define, Design, and Build & launch. Each stage includes a wireframe, foundation blocks, and expandable details. Shared motion controls pause continuous diagram animations.
+- Project names and portfolio content are deliberately deferred.
+- The hero is an interactive code-created process diagram. It includes web/iOS selectors, pause/play controls and reduced-motion support. The original phone artwork remains in the source assets as an archive but is excluded from the rendered and bundled page.
+- The project form validates the information and opens a prefilled email draft. The visitor must send that draft in their email app. It does not claim delivery, store inquiries or connect to a backend. The direct email link is also available.
 
-- The hero render includes Apple's own app icons. Everything else on the page avoids Apple artwork — no Apple logo, no App Store badge, icons drawn from scratch, system font stack rather than bundled Apple fonts. Swap the render for one with a blank home screen if you want it airtight.
-- Still placeholder content: the budget bands in the contact form, and "the same two people" in the services intro.
-- Contact: Support@redoakmediahouse.com · Richmond, Virginia.
+## Publishing
+
+The parent repository publishes GitHub Pages from `main` at the repository root. Run `python3 scripts/build.py` from the repository root to rebuild this source and copy `index.html` and `privacy.html` to the published location. The root `CNAME` preserves the existing domain. The root `_config.yml` excludes source and development files from the Pages output.
+

@@ -1,0 +1,6 @@
+# Publish only the root delivery files, not editable source or review notes.
+exclude:
+  - site
+  - scripts
+  - README.md
+  - backups
