@@ -124,7 +124,7 @@
   }
   @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none !important; } }
 
-  .hero-diagram { position:relative; min-width:0; padding:1.5rem; border:1px solid #42474f; border-radius:20px; background:linear-gradient(145deg,#24282f 0%,#15171c 42%,#111318 75%,#20252b 100%); box-shadow:inset 0 1px 0 #ffffff16,0 24px 65px #0005; }
+  .hero-diagram { position:relative; min-width:0; padding:0; border:0; border-radius:0; background:none; box-shadow:none; }
   .diagram-topline { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
   .diagram-label { color:#cdd4df; font-size:.875rem; letter-spacing:.01em; }
   .motion-control { min-height:44px; min-width:58px; color:#cbd2dd; background:#ffffff07; border:1px solid #ffffff1f; border-radius:6px; padding:.4rem .6rem; cursor:pointer; font-size:.875rem; }
@@ -156,7 +156,7 @@
   .diagram-description { margin-top:1rem; min-height:4.8em; color:#bfc8d6; font-size:.875rem; line-height:1.6; }
   .hero-diagram[data-motion="paused"] .route-flow { animation-play-state:paused; }
   @keyframes signal-flow { to { stroke-dashoffset:-44; } }
-  @media (max-width:420px) { .hero-diagram { padding:1rem; } .diagram-label { max-width:13ch; } .output-node { gap:.4rem; } }
+  @media (max-width:420px) { .diagram-label { max-width:13ch; } .output-node { gap:.4rem; } }
   @media (prefers-reduced-motion:reduce) { .route-flow { animation:none; } }
   @media (forced-colors:active) { h1 { background:none; color:CanvasText; -webkit-text-fill-color:CanvasText; } .diagram-node,.diagram-platforms button[aria-pressed="true"] { border-color:CanvasText; } .route-base,.route-flow { stroke:CanvasText; } }
 
