@@ -43,18 +43,19 @@
   .eyebrow { font-size:.875rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--red-light); }
   .hero { display:grid; grid-template-columns:1.08fr 1fr; gap:3.5rem; align-items:center; padding-block:6.5rem 4.5rem; }
   h1 { font-size:clamp(2.7rem,5.3vw,4.75rem); font-weight:300; line-height:1.06; letter-spacing:-.045em; margin-block:1.4rem 1.8rem; }
-  h1 { color:#e7ecf2; }
+  h1,h2 { color:#e7ecf2; }
   h1 span { display:block; }
-  h1 strong { font-weight:400; }
-  h1::after { content:""; display:block; width:4rem; height:2px; margin-top:1.1rem; background:linear-gradient(90deg,#ff6570,#d0121f 65%,transparent); }
+  h1 strong,h2 strong { font-weight:400; }
+  h1::after,h2::after { content:""; display:block; width:4rem; height:2px; margin-top:1.1rem; background:linear-gradient(90deg,#ff6570,#d0121f 65%,transparent); }
   @supports ((background-clip:text) or (-webkit-background-clip:text)) {
-    h1 { background:linear-gradient(168deg,#ffffff 8%,#edf2f8 34%,#b6c1ce 53%,#f9fbff 75%,#c7d1dc 98%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    h1,h2 { background:linear-gradient(168deg,#ffffff 8%,#edf2f8 34%,#b6c1ce 53%,#f9fbff 75%,#c7d1dc 98%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
   }
   .hero-copy > p { font-size:1.125rem; color:var(--muted); max-width:48ch; }
   .actions { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; }
   .section { padding-block:6rem; }
   .section-heading { display:grid; grid-template-columns:1.1fr 1fr; align-items:end; gap:3rem; margin-bottom:2.75rem; }
-  h2 { font-size:clamp(2rem,3.9vw,3.4rem); line-height:1.1; font-weight:400; letter-spacing:-.035em; }
+  h2 { font-size:clamp(2rem,3.9vw,3.4rem); line-height:1.1; font-weight:300; letter-spacing:-.04em; }
+  h2::after { width:3rem; margin-top:.85rem; }
   .section-heading .eyebrow { margin-bottom:1rem; }
   .section-heading > p { color:var(--muted); max-width:46ch; font-size:1.0625rem; }
   .services { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
@@ -160,7 +161,7 @@
   @keyframes signal-flow { to { stroke-dashoffset:-44; } }
   @media (max-width:420px) { .diagram-label { max-width:13ch; } .output-node { gap:.4rem; } }
   @media (prefers-reduced-motion:reduce) { .route-flow { animation:none; } }
-  @media (forced-colors:active) { h1 { background:none; color:CanvasText; -webkit-text-fill-color:CanvasText; } .diagram-node,.diagram-platforms button[aria-pressed="true"] { border-color:CanvasText; } .route-base,.route-flow { stroke:CanvasText; } }
+  @media (forced-colors:active) { h1,h2 { background:none; color:CanvasText; -webkit-text-fill-color:CanvasText; } .diagram-node,.diagram-platforms button[aria-pressed="true"] { border-color:CanvasText; } .route-base,.route-flow { stroke:CanvasText; } }
 
   .learning-points { margin:1.5rem 0 0; border-top:1px solid var(--line); }
   .learning-points > div { display:grid; grid-template-columns:1fr 1.4fr; gap:1rem; padding-top:1rem; }
@@ -368,7 +369,7 @@
   </section>
   <section id="build" class="wrap section" data-motion="{{ motionState }}" aria-labelledby="build-title">
     <div class="section-heading">
-      <div><div class="eyebrow">Websites &amp; applications</div><h2 id="build-title">Your idea.<br>A clear path to launch.</h2></div>
+      <div><div class="eyebrow">Websites &amp; applications</div><h2 id="build-title">Your <strong>idea.</strong><br>A clear path to <strong>launch.</strong></h2></div>
       <div class="section-explainer"><p>Define what matters. Design how it works. Build and test it for the real world. These are the foundations of a website or application.</p><div class="motion-toolbar"><span>Diagram motion</span><button class="motion-control" type="button" onClick="{{ toggleMotion }}" disabled="{{ reducedMotion }}" aria-label="{{ motionControlLabel }}">{{ motionButtonLabel }}</button></div></div>
     </div>
     <ol class="learning-grid">
@@ -379,7 +380,7 @@
   </section>
   <section id="promise" class="wrap section" aria-labelledby="process-title">
     <div class="section-heading">
-      <div><div class="eyebrow">How we work</div><h2 id="process-title">Four questions.<br>One clear path.</h2></div>
+      <div><div class="eyebrow">How we work</div><h2 id="process-title">Four <strong>questions.</strong><br>One clear <strong>path.</strong></h2></div>
       <p>Each stage answers a different question. Together, they turn a loose idea into something people can understand and use.</p>
     </div>
     <ol class="process">
@@ -392,7 +393,7 @@
   <section id="contact" class="contact" aria-labelledby="contact-title">
     <div class="wrap contact-inner">
       <div class="contact-copy">
-        <h2 id="contact-title">Start a project.</h2>
+        <h2 id="contact-title">Start a <strong>project.</strong></h2>
         <p>Tell us what you want to build, who it is for, and what you want it to achieve. Start with a website, an iOS app, or an idea we can help you shape.</p>
         <a href="mailto:Support@redoakmediahouse.com">Support@redoakmediahouse.com</a>
       </div>
