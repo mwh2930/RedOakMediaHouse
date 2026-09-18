@@ -174,8 +174,6 @@
   @media (max-width:960px) { .process li:nth-child(2)::after { display:none; } }
   @media (max-width:420px) { .process li::after { display:none; } .learning-points > div { grid-template-columns:1fr; gap:.25rem; } }
 
-  .section-explainer > p { font-size:1.125rem; line-height:1.6; color:var(--muted); max-width:36ch; }
-  .motion-toolbar { display:flex; align-items:center; gap:1rem; margin-top:1.2rem; color:#b6bfcc; font-size:.875rem; }
   .visual-services { gap:1.5rem; }
   .visual-service { min-width:0; padding:1.6rem; border-color:#34383f; border-radius:16px; background:linear-gradient(155deg,#1c1e23,#121316 75%); }
   .visual-service .service-top { margin-bottom:1.2rem; gap:1rem; }
@@ -294,7 +292,7 @@
 
   /* Open, compact idea-to-launch flow. */
   #build { padding-block:3.5rem; }
-  #build .section-heading { margin-bottom:2rem; gap:2rem; }
+  #build .section-heading { grid-template-columns:1fr; margin-bottom:2rem; gap:0; }
   .learning-grid { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:2.5rem; align-items:start; }
   .lesson { min-width:0; padding:0; border:0; border-radius:0; background:none; }
   .lesson-top { display:flex; align-items:center; gap:.65rem; margin-bottom:.7rem; color:#c0cad8; font-size:.875rem; letter-spacing:.06em; text-transform:uppercase; }
@@ -367,7 +365,6 @@
   <section id="build" class="wrap section" data-motion="{{ motionState }}" aria-labelledby="build-title">
     <div class="section-heading">
       <div><div class="eyebrow">Websites &amp; applications</div><h2 id="build-title">Your <strong>idea.</strong><br>A clear path to <strong>launch.</strong></h2></div>
-      <div class="section-explainer"><p>Define what matters. Design how it works. Build and test it for the real world. These are the foundations of a website or application.</p><div class="motion-toolbar"><span>Diagram motion</span><button class="motion-control" type="button" onClick="{{ toggleMotion }}" disabled="{{ reducedMotion }}" aria-label="{{ motionControlLabel }}">{{ motionButtonLabel }}</button></div></div>
     </div>
     <ol class="learning-grid">
       <li class="lesson"><div class="lesson-top"><span class="lesson-number">01</span><span>Define</span></div><h3>Give the idea a purpose.</h3><p class="lesson-intro">Identify who it helps, the problem it solves, and what the first version needs to do.</p><figure class="wireframe"><div class="wireframe-canvas"><svg viewBox="0 0 460 280" preserveAspectRatio="xMidYMid meet" fill="none" aria-hidden="true"><rect class="wf-box" x="20" y="48" width="170" height="65" rx="8"/><text x="39" y="76">The audience</text><path class="wf-line" d="M40 94H164"/><rect class="wf-box" x="20" y="145" width="170" height="65" rx="8"/><text x="39" y="173">The problem</text><path class="wf-line" d="M40 191H157"/><path class="wf-line" d="M190 81H223V129H271 M190 177H223V129 M263 123L271 129L263 135"/><path class="visual-flow" d="M190 81H223V129H271 M190 177H223V129"/><rect class="wf-box" x="284" y="25" width="151" height="210" rx="10"/><text x="304" y="59">Project brief</text><path class="wf-line" d="M284 74H435 M308 100H409 M308 113H395 M308 145H409 M308 158H391"/><rect class="wf-box" x="304" y="182" width="111" height="29" rx="5"/><text x="324" y="202" class="wf-small">The goal</text></svg></div><figcaption>A clear brief turns an idea into a focused project.</figcaption></figure><div class="foundation-blocks"><span>Foundation blocks</span><ul><li>Audience &amp; problem</li><li>Essential features</li><li>Success criteria</li></ul></div><details class="lesson-depth"><summary>How this stage works</summary><p class="lesson-output"><span>The outcome</span>A shared plan for what to build.</p><div class="lesson-fact"><strong>Start with a focused first version</strong><p>Talk to the people the product is for. Prioritize the task that matters most, separate essentials from later ideas, and agree on how you will judge whether it works.</p><a class="lesson-source" href="https://developer.apple.com/tutorials/develop-in-swift/ask-questions">Apple · Defining an app idea ↗</a></div></details></li>
