@@ -156,7 +156,6 @@
   .diagram-platforms { display:grid; grid-template-columns:1fr 1fr; padding:4px; border:1px solid #424852; border-radius:9px; background:#0b0d11; }
   .diagram-platforms button { min-height:44px; color:#b6c0cd; border:1px solid transparent; background:transparent; border-radius:6px; font-size:.875rem; cursor:pointer; padding:.5rem; }
   .diagram-platforms button[aria-pressed="true"] { color:#f5f7fb; border-color:#5c6675; background:linear-gradient(#3b4350,#242b35); box-shadow:inset 0 1px 0 #ffffff18; }
-  .diagram-description { margin-top:1rem; min-height:4.8em; color:#bfc8d6; font-size:.875rem; line-height:1.6; }
   .hero-diagram[data-motion="paused"] .route-flow { animation-play-state:paused; }
   @keyframes signal-flow { to { stroke-dashoffset:-44; } }
   @media (max-width:420px) { .diagram-label { max-width:13ch; } .output-node { gap:.4rem; } }
@@ -347,7 +346,7 @@
     </div>
     <figure class="hero-diagram" data-mode="{{ diagramMode }}" data-motion="{{ motionState }}" aria-labelledby="diagram-title">
       <div class="diagram-topline"><span class="diagram-label" id="diagram-title">From idea to experience</span><button class="motion-control" type="button" onClick="{{ toggleMotion }}" disabled="{{ reducedMotion }}" aria-label="{{ motionControlLabel }}">{{ motionButtonLabel }}</button></div>
-      <div class="diagram-canvas" aria-hidden="true">
+      <div class="diagram-canvas" id="hero-development-path" role="img" aria-label="{{ diagramLabel }}">
         <svg class="diagram-routes" viewBox="0 0 440 305" preserveAspectRatio="none" fill="none">
           <path class="route-base" d="M220 60V110 M220 174V190Q220 206 204 206H126Q110 206 110 222V238 M220 174V190Q220 206 236 206H314Q330 206 330 222V238" />
           <path class="route-flow route-trunk" d="M220 60V110" />
@@ -360,10 +359,9 @@
         <div class="diagram-node output-node ios-node"><span class="output-icon">{{ icoPhone }}</span><span>iOS app</span><span class="port-light"></span></div>
       </div>
       <div class="diagram-platforms" role="group" aria-label="Explore a development path">
-        <button type="button" onClick="{{ chooseWeb }}" aria-pressed="{{ webSelected }}" aria-controls="diagram-description">Website</button>
-        <button type="button" onClick="{{ chooseIOS }}" aria-pressed="{{ iosSelected }}" aria-controls="diagram-description">iOS application</button>
+        <button type="button" onClick="{{ chooseWeb }}" aria-pressed="{{ webSelected }}" aria-controls="hero-development-path">Website</button>
+        <button type="button" onClick="{{ chooseIOS }}" aria-pressed="{{ iosSelected }}" aria-controls="hero-development-path">iOS application</button>
       </div>
-      <figcaption class="diagram-description" id="diagram-description" aria-live="polite">{{ diagramDescription }}</figcaption>
     </figure>
   </section>
   <section id="build" class="wrap section" data-motion="{{ motionState }}" aria-labelledby="build-title">
@@ -466,9 +464,9 @@ class Component extends DCLogic {
       chooseWeb: () => this.setState({ diagramMode: 'web' }),
       chooseIOS: () => this.setState({ diagramMode: 'ios' }),
       toggleMotion: () => { if (!this.state.reducedMotion) this.setState({ motionPaused: !this.state.motionPaused }); },
-      diagramDescription: this.state.diagramMode === 'web'
-        ? 'Start with your idea. Shape the content and interface. Build a website people can use in their browser.'
-        : 'Start with your idea. Plan the screens and interactions. Build an application for Apple iOS.', 
+      diagramLabel: this.state.diagramMode === 'web'
+        ? 'Your idea becomes a website through Red Oak design and development.'
+        : 'Your idea becomes an iOS application through Red Oak design and development.',
       openEmailDraft: (event) => {
         event.preventDefault();
         const form = event.currentTarget;

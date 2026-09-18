@@ -65,10 +65,10 @@ assert.equal(diagram.renderVals().motionControlLabel, 'Pause all diagram animati
 diagram.renderVals().chooseIOS();
 assert.equal(diagram.renderVals().iosSelected, true);
 assert.equal(diagram.renderVals().webSelected, false);
-assert.match(diagram.renderVals().diagramDescription, /Apple iOS/);
+assert.match(diagram.renderVals().diagramLabel, /iOS application/);
 diagram.renderVals().chooseWeb();
 assert.equal(diagram.renderVals().webSelected, true);
-assert.match(diagram.renderVals().diagramDescription, /browser/);
+assert.match(diagram.renderVals().diagramLabel, /website/);
 diagram.renderVals().toggleMotion();
 assert.equal(diagram.renderVals().motionState, 'paused');
 assert.equal(diagram.renderVals().motionControlLabel, 'Play all diagram animations');
@@ -81,7 +81,7 @@ diagram.renderVals().toggleMotion();
 assert.equal(diagram.renderVals().motionState, 'paused');
 diagram.componentWillUnmount();
 assert.equal(listenerRemoved, true);
-console.log('PASS: diagram paths, descriptions, play/pause, reduced-motion changes, and listener cleanup.');
+console.log('PASS: diagram paths, accessible labels, play/pause, reduced-motion changes, and listener cleanup.');
 
 const examples = new sandbox.ComponentForCheck();
 for(const match of source.matchAll(/\{\{\s*(\w+)\s*\}\}/g)) {
