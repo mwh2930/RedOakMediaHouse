@@ -32,18 +32,13 @@ button:focus-visible{outline-offset:3px}
 .wrap{width:min(1200px,calc(100% - 96px));margin-inline:auto}
 .skip{position:absolute;left:20px;top:-100px;padding:12px 20px;background:#fff;z-index:20}
 .skip:focus{top:12px}
-.site-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:28px;border-bottom:1px solid var(--line)}
+.site-header{display:flex;align-items:center;padding-block:28px;border-bottom:1px solid var(--line)}
 .brand{display:flex}
 .brand img{width:190px;height:auto;mix-blend-mode:multiply}
-.site-nav{display:flex;gap:30px;align-items:center}
-.site-nav a{font-size:13px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
-.site-nav a:last-child{color:var(--red)}
 .kicker,.section-index{font-size:11px;line-height:1.5;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
 .kicker{color:var(--red)}
 .hero{display:grid;grid-template-columns:1.3fr 1fr;align-items:center;gap:40px;padding-block:88px 80px}
-.hero h1{font-size:clamp(46px,5.35vw,77px);line-height:1.02;letter-spacing:-.06em;margin:21px 0 24px}
-
-.hero-copy>p{font-size:16px;max-width:440px;color:var(--muted);line-height:1.7}
+.hero h1{font-size:clamp(46px,5.35vw,77px);line-height:1.02;letter-spacing:-.06em;margin:21px 0 5px}
 .primary-link{display:inline-flex;align-items:center;gap:30px;min-height:48px;font-size:14px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--ink);margin-top:28px}
 .primary-link span{font-size:21px;font-weight:400}
 .hero-object{overflow:clip;position:relative;min-height:370px;display:grid;place-items:center;isolation:isolate}
@@ -131,17 +126,10 @@ summary:hover{color:var(--red)}
 }
 
 @media(max-width:700px){.wrap{width:calc(100% - 40px)}
-.site-header{padding-block:19px;gap:12px}
+.site-header{padding-block:19px}
 .brand img{width:148px}
-.site-nav{gap:17px}
-.site-nav a{font-size:11px}
-.site-header{flex-direction:column;align-items:flex-start}
-.site-nav{width:100%;justify-content:space-between;gap:12px}
-.site-nav a{font-size:12px}
-.site-nav a:first-child{display:inline-flex}
 .hero{grid-template-columns:1fr;padding-block:44px 36px;gap:8px}
 .hero h1{font-size:clamp(43px,8.7vw,62px);max-width:560px}
-.hero-copy>p{font-size:14px;max-width:440px}
 .hero-object{min-height:320px;transform:scale(.88);margin-block:-2px -15px}
 .section{padding-block:43px}
 .section-head{grid-template-columns:1fr;gap:18px}
@@ -157,7 +145,6 @@ summary:hover{color:var(--red)}
 
 @media(max-width:370px){.wrap{width:calc(100% - 32px)}
 .brand img{width:127px}
-.site-nav{gap:12px}
 .hero h1{font-size:41px}
 .hero-object{transform:scale(.75);margin-block:-28px}
 
@@ -322,7 +309,6 @@ a{color:LinkText}
 .segment-3{--tail-length:.085;--tail-opacity:.34;--tail-start:.145;--tail-end:-1.335}
 .segment-4{--tail-length:.042;--tail-opacity:.58;--tail-start:.102;--tail-end:-1.378;filter:drop-shadow(0 0 2px #b9132866)}
 .segment-5{--tail-length:.009;--tail-opacity:1;--tail-start:.069;--tail-end:-1.411;stroke-width:2.4;filter:drop-shadow(0 0 3px #b9132890)}
-.testing-model[data-paused=true] .loop-glow{animation-play-state:paused}
 @keyframes comet-flow{from{stroke-dashoffset:var(--tail-start)}to{stroke-dashoffset:var(--tail-end)}}
 @media(prefers-reduced-motion:reduce){.loop-glow{display:none}}
 @media(forced-colors:active){.loop-glow{stroke:Highlight;filter:none}}
@@ -331,11 +317,10 @@ a{color:LinkText}
 <a class="skip" href="#main">Skip to content</a>
 <header class="wrap site-header">
 <a class="brand" href="#main" aria-label="Red Oak Media House home"><img src="assets/red-oak-logo.png" alt="Red Oak Media House" width="1254" height="362"></a>
-<nav class="site-nav" aria-label="Main navigation"><a href="#concept">iOS design</a><a href="#testing">Prototype &amp; test</a><a href="#contact">Contact ↗</a></nav>
 </header>
 <main id="main">
 <section class="wrap hero" aria-labelledby="hero-title">
-<div class="hero-copy"><div class="kicker">iOS design · Prototype · Refine</div><h1 class="metal-title" id="hero-title">Your next iOS product,<br><span>clearly imagined.</span></h1><p>We define the purpose. Design the iOS experience. Test the decisions that matter.</p><a class="primary-link" href="#contact">Discuss your idea <span aria-hidden="true">↗</span></a></div>
+<div class="hero-copy"><div class="kicker">iOS design · Prototype · Refine</div><h1 class="metal-title" id="hero-title">Your next iOS product,<br><span>clearly imagined.</span></h1><a class="primary-link" href="#contact">Discuss your idea <span aria-hidden="true">↗</span></a></div>
 <div class="hero-object" aria-hidden="true"><div class="object-orbit"></div><div class="object-orbit second"></div><div class="glass-sheet back"></div><div class="glass-sheet"><div class="sheet-header"><div class="sheet-mark">RO</div><div class="sheet-line"></div></div><div class="sheet-title"></div><div class="sheet-sub"></div><div class="sheet-item"><div class="sheet-circle"></div><div class="sheet-line"></div></div><div class="sheet-button">↗</div></div><div class="object-label">Clarity, in every layer.</div></div>
 </section>
 <section class="wrap section" id="concept" aria-labelledby="concept-title">
@@ -347,7 +332,7 @@ a{color:LinkText}
 <button class="interface-layer layer-feedback" type="button" onClick="{{ chooseFeedback }}" aria-pressed="{{ feedbackSelected }}" aria-controls="design-insight" aria-label="Explore feedback layer"><span class="layer-art" aria-hidden="true"><span class="layer-tag">03 / FEEDBACK</span><span class="feedback-symbol">✓</span><span class="wire-line long"></span><span class="wire-line short"></span></span></button>
 <button class="interface-layer layer-navigation" type="button" onClick="{{ chooseNavigation }}" aria-pressed="{{ navigationSelected }}" aria-controls="design-insight" aria-label="Explore navigation layer"><span class="layer-art" aria-hidden="true"><span class="layer-tag">02 / NAVIGATION</span><span class="navigation-track"><i></i><i></i><i></i></span><span class="navigation-bar"><i></i><i></i><i></i></span></span></button>
 <button class="interface-layer layer-content" type="button" onClick="{{ chooseContent }}" aria-pressed="{{ contentSelected }}" aria-controls="design-insight" aria-label="Explore content layer"><span class="layer-art" aria-hidden="true"><span class="layer-tag">01 / CONTENT</span><span class="wire-heading"></span><span class="wire-line long"></span><span class="wire-line short"></span><span class="wire-action"></span></span></button>
-</div><figcaption id="design-model-caption">Content → Navigation → Feedback</figcaption><div class="model-playbar"><span>Tap a layer to explore.</span><button type="button" onClick="{{ playDesign }}" aria-label="Play design sequence"><span aria-hidden="true">▷</span> Play sequence</button></div>
+</div><figcaption id="design-model-caption">Content → Navigation → Feedback</figcaption>
 </figure>
 <div class="model-explainer">
 <p class="model-instruction">Select a layer</p>
@@ -363,47 +348,43 @@ a{color:LinkText}
 <section class="wrap section" id="build" aria-labelledby="build-title">
 <div class="section-head" id="promise"><div class="section-index"><b>02</b> Our approach</div><h2 class="metal-title" id="build-title">Define the purpose.<br><span>Make the direction clear.</span></h2></div>
 <div class="model-layout">
-<figure onPointerMove="{{ moveModel }}" onPointerLeave="{{ leaveModel }}" class="visual-model approach-model" data-focus="{{ approachFocus }}" aria-labelledby="approach-model-caption">
+<figure onPointerMove="{{ moveModel }}" onPointerLeave="{{ leaveModel }}" class="visual-model approach-model" data-focus="{{ approachFocus }}" aria-label="Product approach model">
 <div class="scope-map">
 <div class="scope-inputs"><span>Audience</span><span>Problem</span><span>Goal</span></div>
 <div class="scope-join"><i></i><i></i><i></i></div>
 <div class="scope-core"><span>FOCUS</span><strong>One<br>core task.</strong></div>
 <div class="scope-stem"></div>
-<div class="scope-outputs"><svg class="scope-routes" viewBox="0 0 100 37" preserveAspectRatio="none" fill="none" aria-hidden="true"><path class="scope-route route-brief" pathLength="1" d="M50 0V24H15V37"/><path class="scope-route route-flow" pathLength="1" d="M50 0V37"/><path class="scope-route route-handoff" pathLength="1" d="M50 0V24H85V37"/></svg><button class="scope-document scope-brief" type="button" onClick="{{ chooseBrief }}" aria-pressed="{{ briefSelected }}" aria-controls="approach-insight" aria-label="Explore brief deliverable"><span>01</span><i></i><i></i><strong>Brief</strong></button><button class="scope-document scope-flow" type="button" onClick="{{ chooseFlow }}" aria-pressed="{{ flowSelected }}" aria-controls="approach-insight" aria-label="Explore flow deliverable"><span>02</span><i></i><i></i><strong>Flow</strong></button><button class="scope-document scope-handoff" type="button" onClick="{{ chooseHandoff }}" aria-pressed="{{ handoffSelected }}" aria-controls="approach-insight" aria-label="Explore handoff deliverable"><span>03</span><i></i><i></i><strong>Handoff</strong></button></div>
-</div><figcaption id="approach-model-caption">A focused need. A coherent design.</figcaption><div class="model-playbar"><span>Choose a deliverable.</span><button type="button" onClick="{{ playApproach }}" aria-label="Play approach sequence"><span aria-hidden="true">▷</span> Play sequence</button></div>
+<div class="scope-outputs"><svg class="scope-routes" viewBox="0 0 100 37" preserveAspectRatio="none" fill="none" aria-hidden="true"><path class="scope-route route-brief" pathLength="1" d="M50 0V24H15V37"/><path class="scope-route route-flow" pathLength="1" d="M50 0V37"/><path class="scope-route route-handoff" pathLength="1" d="M50 0V24H85V37"/></svg><button class="scope-document scope-brief" type="button" onClick="{{ chooseBrief }}" aria-pressed="{{ briefSelected }}" aria-label="Explore brief deliverable"><span>01</span><i></i><i></i><strong>Brief</strong></button><button class="scope-document scope-flow" type="button" onClick="{{ chooseFlow }}" aria-pressed="{{ flowSelected }}" aria-label="Explore flow deliverable"><span>02</span><i></i><i></i><strong>Flow</strong></button><button class="scope-document scope-handoff" type="button" onClick="{{ chooseHandoff }}" aria-pressed="{{ handoffSelected }}" aria-label="Explore handoff deliverable"><span>03</span><i></i><i></i><strong>Handoff</strong></button></div>
+</div>
 </figure>
 <div class="model-explainer">
 <p class="model-instruction">Explore the deliverables</p>
 <div class="model-controls" role="group" aria-label="Explore the product approach">
-<button type="button" onClick="{{ chooseBrief }}" aria-pressed="{{ briefSelected }}" aria-controls="approach-insight"><span>01</span><strong>Brief</strong><small>Define what matters.</small><i aria-hidden="true">↗</i></button>
-<button type="button" onClick="{{ chooseFlow }}" aria-pressed="{{ flowSelected }}" aria-controls="approach-insight"><span>02</span><strong>Flow</strong><small>Connect the steps.</small><i aria-hidden="true">↗</i></button>
-<button type="button" onClick="{{ chooseHandoff }}" aria-pressed="{{ handoffSelected }}" aria-controls="approach-insight"><span>03</span><strong>Handoff</strong><small>Make decisions usable.</small><i aria-hidden="true">↗</i></button>
+<button type="button" onClick="{{ chooseBrief }}" aria-pressed="{{ briefSelected }}"><span>01</span><strong>Brief</strong><small>Define what matters.</small><i aria-hidden="true">↗</i></button>
+<button type="button" onClick="{{ chooseFlow }}" aria-pressed="{{ flowSelected }}"><span>02</span><strong>Flow</strong><small>Connect the steps.</small><i aria-hidden="true">↗</i></button>
+<button type="button" onClick="{{ chooseHandoff }}" aria-pressed="{{ handoffSelected }}"><span>03</span><strong>Handoff</strong><small>Make decisions usable.</small><i aria-hidden="true">↗</i></button>
 </div>
-<div class="model-insight" id="approach-insight" aria-live="polite"><h3>{{ approachTitle }}</h3><p>{{ approachText }}</p></div>
-<details class="deep-dive"><summary>From need to design direction <span aria-hidden="true">+</span></summary><div class="deep-content"><p>Start with the problem. Choose the essential journey. Give every feature a reason to be there.</p><dl><div><dt>Purpose</dt><dd>Define the audience, the need, and a useful outcome.</dd></div><div><dt>Priorities</dt><dd>Separate the first version from ideas that can wait.</dd></div><div><dt>Handoff</dt><dd>Document screens, components, behavior, and open questions for development.</dd></div></dl><p class="model-output"><strong>The deliverable</strong> A brief, screen flow, and design specification.</p></div></details>
 </div></div>
 </section>
 <section class="wrap section testing-section" id="testing" aria-labelledby="testing-title">
 <div class="section-head"><div class="section-index"><b>03</b> Prototype &amp; test</div><h2 class="metal-title" id="testing-title">Test the idea.<br><span>Refine with evidence.</span></h2></div>
 <div class="model-layout">
-<figure onPointerMove="{{ moveModel }}" onPointerLeave="{{ leaveModel }}" class="visual-model testing-model" data-paused="{{ glowPaused }}" data-focus="{{ testFocus }}" aria-labelledby="testing-model-caption">
+<figure onPointerMove="{{ moveModel }}" onPointerLeave="{{ leaveModel }}" class="visual-model testing-model" data-focus="{{ testFocus }}" aria-label="Prototype testing loop">
 <div class="feedback-loop">
 <svg aria-hidden="true" class="loop-connections" viewBox="0 0 480 350" preserveAspectRatio="none" fill="none"><path class="loop-base" d="M282 64C360 78 412 142 386 223 M354 267C281 321 181 320 126 270 M97 219C67 143 126 78 201 65"/><g class="comet comet-observe"><path class="loop-glow comet-segment segment-0" pathLength="1" d="M282 64C360 78 412 142 386 223"/><path class="loop-glow comet-segment segment-1" pathLength="1" d="M282 64C360 78 412 142 386 223"/><path class="loop-glow comet-segment segment-2" pathLength="1" d="M282 64C360 78 412 142 386 223"/><path class="loop-glow comet-segment segment-3" pathLength="1" d="M282 64C360 78 412 142 386 223"/><path class="loop-glow comet-segment segment-4" pathLength="1" d="M282 64C360 78 412 142 386 223"/><path class="loop-glow comet-segment segment-5 comet-head" pathLength="1" d="M282 64C360 78 412 142 386 223"/></g><g class="comet comet-refine"><path class="loop-glow comet-segment segment-0" pathLength="1" d="M354 267C281 321 181 320 126 270"/><path class="loop-glow comet-segment segment-1" pathLength="1" d="M354 267C281 321 181 320 126 270"/><path class="loop-glow comet-segment segment-2" pathLength="1" d="M354 267C281 321 181 320 126 270"/><path class="loop-glow comet-segment segment-3" pathLength="1" d="M354 267C281 321 181 320 126 270"/><path class="loop-glow comet-segment segment-4" pathLength="1" d="M354 267C281 321 181 320 126 270"/><path class="loop-glow comet-segment segment-5 comet-head" pathLength="1" d="M354 267C281 321 181 320 126 270"/></g><g class="comet comet-prototype"><path class="loop-glow comet-segment segment-0" pathLength="1" d="M97 219C67 143 126 78 201 65"/><path class="loop-glow comet-segment segment-1" pathLength="1" d="M97 219C67 143 126 78 201 65"/><path class="loop-glow comet-segment segment-2" pathLength="1" d="M97 219C67 143 126 78 201 65"/><path class="loop-glow comet-segment segment-3" pathLength="1" d="M97 219C67 143 126 78 201 65"/><path class="loop-glow comet-segment segment-4" pathLength="1" d="M97 219C67 143 126 78 201 65"/><path class="loop-glow comet-segment segment-5 comet-head" pathLength="1" d="M97 219C67 143 126 78 201 65"/></g></svg>
-<button class="loop-node loop-prototype" type="button" onClick="{{ choosePrototype }}" aria-pressed="{{ prototypeSelected }}" aria-controls="testing-insight" aria-label="Explore prototype stage"><span>01</span><strong>Prototype</strong><small>Make it tangible.</small></button>
-<button class="loop-node loop-observe" type="button" onClick="{{ chooseObserve }}" aria-pressed="{{ observeSelected }}" aria-controls="testing-insight" aria-label="Explore observe stage"><span>02</span><strong>Observe</strong><small>Find the friction.</small></button>
-<button class="loop-node loop-refine" type="button" onClick="{{ chooseRefine }}" aria-pressed="{{ refineSelected }}" aria-controls="testing-insight" aria-label="Explore refine stage"><span>03</span><strong>Refine</strong><small>Apply what you learn.</small></button>
+<button class="loop-node loop-prototype" type="button" onClick="{{ choosePrototype }}" aria-pressed="{{ prototypeSelected }}" aria-label="Explore prototype stage"><span>01</span><strong>Prototype</strong><small>Make it tangible.</small></button>
+<button class="loop-node loop-observe" type="button" onClick="{{ chooseObserve }}" aria-pressed="{{ observeSelected }}" aria-label="Explore observe stage"><span>02</span><strong>Observe</strong><small>Find the friction.</small></button>
+<button class="loop-node loop-refine" type="button" onClick="{{ chooseRefine }}" aria-pressed="{{ refineSelected }}" aria-label="Explore refine stage"><span>03</span><strong>Refine</strong><small>Apply what you learn.</small></button>
 <div class="loop-center"><span>THE QUESTION</span><strong>Does it<br>make sense?</strong></div>
-</div><figcaption id="testing-model-caption">Prototype · Observe · Refine · Repeat</figcaption><div class="model-playbar"><button type="button" onClick="{{ toggleGlow }}" aria-label="{{ glowMotionLabel }}"><span aria-hidden="true">{{ glowMotionIcon }}</span> {{ glowMotionLabel }}</button><button type="button" onClick="{{ playTesting }}" aria-label="Play testing sequence"><span aria-hidden="true">▷</span> Play sequence</button></div>
+</div>
 </figure>
 <div class="model-explainer">
 <p class="model-instruction">Follow the feedback loop</p>
 <div class="model-controls" role="group" aria-label="Explore prototype testing">
-<button type="button" onClick="{{ choosePrototype }}" aria-pressed="{{ prototypeSelected }}" aria-controls="testing-insight"><span>01</span><strong>Prototype</strong><small>Build enough to learn.</small><i aria-hidden="true">↗</i></button>
-<button type="button" onClick="{{ chooseObserve }}" aria-pressed="{{ observeSelected }}" aria-controls="testing-insight"><span>02</span><strong>Observe</strong><small>Watch the task unfold.</small><i aria-hidden="true">↗</i></button>
-<button type="button" onClick="{{ chooseRefine }}" aria-pressed="{{ refineSelected }}" aria-controls="testing-insight"><span>03</span><strong>Refine</strong><small>Improve the next version.</small><i aria-hidden="true">↗</i></button>
+<button type="button" onClick="{{ choosePrototype }}" aria-pressed="{{ prototypeSelected }}"><span>01</span><strong>Prototype</strong><small>Build enough to learn.</small><i aria-hidden="true">↗</i></button>
+<button type="button" onClick="{{ chooseObserve }}" aria-pressed="{{ observeSelected }}"><span>02</span><strong>Observe</strong><small>Watch the task unfold.</small><i aria-hidden="true">↗</i></button>
+<button type="button" onClick="{{ chooseRefine }}" aria-pressed="{{ refineSelected }}"><span>03</span><strong>Refine</strong><small>Improve the next version.</small><i aria-hidden="true">↗</i></button>
 </div>
-<div class="model-insight" id="testing-insight" aria-live="polite"><h3>{{ testTitle }}</h3><p>{{ testText }}</p></div>
-<details class="deep-dive"><summary>What the testing reveals <span aria-hidden="true">+</span></summary><div class="deep-content"><p>A focused session explores a specific question. Observations guide the next design decision.</p><dl><div><dt>Task</dt><dd>Give participants a goal without prescribing every step.</dd></div><div><dt>Observation</dt><dd>Note hesitation, wrong turns, unclear labels, and expectations.</dd></div><div><dt>Revision</dt><dd>Prioritize changes. Revisit the journey. Record what still needs testing.</dd></div></dl><p class="model-output"><strong>The deliverable</strong> Findings, design revisions, and open questions.</p></div></details>
 </div></div>
 </section>
 <section class="contact" id="contact" aria-labelledby="contact-title"><div class="wrap contact-inner"><div class="contact-copy"><div class="section-index"><b>04</b> Start a conversation</div><h2 class="metal-title" id="contact-title">Bring the idea.<br>Define the next step.</h2><ol class="brief-outline" aria-label="Three questions for your brief"><li><span>01</span><strong>Who is it for?</strong></li><li><span>02</span><strong>What should work better?</strong></li><li><span>03</span><strong>What would success look like?</strong></li></ol><a href="mailto:Support@redoakmediahouse.com">Support@redoakmediahouse.com</a></div>
@@ -413,7 +394,7 @@ a{color:LinkText}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { designFocus: 'content', approachFocus: 'brief', testFocus: 'prototype', glowPaused: false, contactStatus: '', manualCopy: false, briefText: '', draftOpened: false };
+  state = { designFocus: 'content', approachFocus: 'brief', testFocus: 'prototype', contactStatus: '', manualCopy: false, briefText: '', draftOpened: false };
   modelTimers = {};
   moveModelPointer(event) {
     if (event.pointerType !== 'mouse' || !window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)').matches) return;
@@ -484,11 +465,6 @@ class Component extends DCLogic {
       chooseBrief: () => this.selectModel('approachFocus', 'brief'), chooseFlow: () => this.selectModel('approachFocus', 'flow'), chooseHandoff: () => this.selectModel('approachFocus', 'handoff'),
       choosePrototype: () => this.selectModel('testFocus', 'prototype'), chooseObserve: () => this.selectModel('testFocus', 'observe'), chooseRefine: () => this.selectModel('testFocus', 'refine'),
       moveModel: (event) => this.moveModelPointer(event), leaveModel: (event) => this.resetModelPointer(event),
-      playDesign: () => this.playModel('designFocus', ['content', 'navigation', 'feedback']),
-      playApproach: () => this.playModel('approachFocus', ['brief', 'flow', 'handoff']),
-      glowPaused: s.glowPaused, glowMotionLabel: s.glowPaused ? 'Resume glow' : 'Pause glow', glowMotionIcon: s.glowPaused ? '▷' : 'Ⅱ',
-      toggleGlow: () => this.setState({ glowPaused: !this.state.glowPaused }),
-      playTesting: () => this.playModel('testFocus', ['prototype', 'observe', 'refine']),
       contactStatus: s.contactStatus, manualCopy: s.manualCopy, briefText: s.briefText,
       openEmailDraft: (event) => {
         event.preventDefault();

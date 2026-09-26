@@ -31,7 +31,7 @@ assert 'sc-camel-on-click=' in template and 'sc-camel-on-submit=' in template
 assert 'sc-camel-view-box=' in template
 assert 'sc-camel-preserve-aspect-ratio=' in template
 assert 'prefers-reduced-motion' in template and 'forced-colors' in template
-assert 'toggleGlow' in source and 'animation-play-state:paused' in source, 'Continuous glow needs a pause control'
+assert 'animation:comet-flow 3.8s linear infinite' in source, 'Comet motion must remain active'
 assert 'app-stage' not in source and 'Daybook' not in source
 assert 'Design for Apple iOS' in source
 assert 'role="status"' in source
