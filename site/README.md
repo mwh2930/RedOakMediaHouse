@@ -1,6 +1,6 @@
 # Red Oak Media House — website
 
-An educational, diagrammatic homepage for a website and Apple iOS application development company.
+A company-first homepage for iOS product design, interactive prototyping, and focused usability testing.
 
 ## Edit and build
 
@@ -22,11 +22,20 @@ python3 -m http.server 8768 --bind 127.0.0.1 --directory dist
 
 ## Content and contact
 
-- Company contact: Support@redoakmediahouse.com · Richmond, Virginia.
-- The development section is an open, condensed three-stage flow: Define, Design, and Build & launch. Each stage includes a wireframe, foundation blocks, and expandable details. Shared motion controls pause continuous diagram animations.
-- Project names and portfolio content are deliberately deferred.
-- The hero is an interactive code-created process diagram. It includes web/iOS selectors, pause/play controls and reduced-motion support. The original phone artwork remains in the source assets as an archive but is excluded from the rendered and bundled page.
-- The project form validates the information and opens a prefilled email draft. The visitor must send that draft in their email app. It does not claim delivery, store inquiries or connect to a backend. The direct email link is also available.
+- Company contact: Support@redoakmediahouse.com.
+- Each content section includes an open visual model, selectable stages, and a native disclosure for deeper detail. Selection state stays in page memory.
+- Navigation highlights iOS design and prototype testing. The site explains familiar platform conventions, accessibility considerations, and a task → observations → refinement process.
+- Steel gradients give headings a reflective finish, with solid text fallbacks for contrast preferences.
+- Deliverables are product definition, interface design, and a prototype with design handoff. Production development and release services are not advertised.
+- The page uses system fonts, an existing light-background logo, CSS material illustrations, and SVG wireframes. The testing loop has continuous comet trails with a pause control and reduced-motion fallback. Other sequences play only on request. No tracking or backend was added.
+- The form validates details and opens a prefilled email draft. Copy brief uses the clipboard only on request, with a manual-copy fallback. Nothing is claimed as sent.
+- The privacy page remains an explicit draft pending company records. Its interaction descriptions match the contact form.
+
+## Browser checks
+
+Start a local server at the repository root or generated `dist` folder, then run `scripts/check-browser.cjs` with Playwright available to Node. Set `REDOAK_PREVIEW_URL` to override the default `http://127.0.0.1:8774`. Chromium uses installed Chrome; Firefox and WebKit require their Playwright browsers. `REDOAK_ENGINE` can select one engine and `REDOAK_TEST_OUTPUT` can set the evidence directory.
+
+The suite checks five widths (320, 390, 768, 1280, 1920), keyboard focus, form validation, clipboard fallback, desktop CSS 200% zoom, reduced motion, and no-JavaScript content. The additional `check-models.cjs` and `check-glow.cjs` scripts verify direct diagram controls, pointer response, playback, pause/resume, and reduced motion in Chromium and WebKit (default preview port 8776). Actual Safari requires separate qualification; WebKit results are not a native Safari certification.
 
 ## Publishing
 

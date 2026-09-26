@@ -7,10 +7,12 @@ const source = fs.readFileSync(path.join(root, 'source/Red Oak Media House.dc.ht
 const code = source.match(/<script type="text\/x-dc" data-dc-script>([\s\S]*?)<\/script>/)[1];
 let navigations = [];
 const sandbox = {
-  DCLogic: class { setState(next) { this.state = {...this.state, ...next}; } },
+  DCLogic: class { setState(next, cb) { this.state = {...this.state, ...next}; cb?.(); } },
   React: { createElement: () => null },
   FormData: class { constructor(form) { this.fields = form.fields; } get(name) { return this.fields[name]?.value || null; } },
-  window: { location: { set href(url) { navigations.push(url); } } },
+  document: { querySelector: () => ({ focus() {} }), getElementById: () => ({ focus() {}, select() {} }) },
+  navigator: { clipboard: { writeText: async () => {} } },
+  window: { requestAnimationFrame: callback => callback(), location: { set href(url) { navigations.push(url); } } },
 };
 vm.createContext(sandbox);
 vm.runInContext(code + '\nthis.ComponentForCheck = Component;', sandbox);
@@ -29,7 +31,7 @@ function submit(values, valid = true) {
   assert.equal(checks, 1);
   return { component, fields };
 }
-for (const projectType of ['Website','iOS application','Both / exploring an idea']) {
+for (const projectType of ['Website design','iOS design','Prototype & testing','Exploring an idea']) {
   const result = submit({projectType, name:'  Ana & Co  ', email:' ana@example.com ', details:'  A website & app? 100% useful.\nSecond line: + = # café  '});
   const url = new URL(navigations.at(-1));
   assert.equal(url.protocol, 'mailto:');
@@ -51,40 +53,30 @@ for (const [values, valid] of [
 }
 assert.equal(navigations.length, baseline);
 console.log('PASS: all project types, encoded punctuation, retained details, required/blank/invalid input, and honest draft state.');
-let preferenceListener;
-let listenerRemoved = false;
-sandbox.window.matchMedia = () => ({
-  matches: false,
-  addEventListener(type, callback) { assert.equal(type, 'change'); preferenceListener = callback; },
-  removeEventListener(type, callback) { assert.equal(callback, preferenceListener); listenerRemoved = true; }
-});
-const diagram = new sandbox.ComponentForCheck();
-diagram.componentDidMount();
-assert.equal(diagram.renderVals().motionState, 'playing');
-assert.equal(diagram.renderVals().motionControlLabel, 'Pause all diagram animations');
-diagram.renderVals().chooseIOS();
-assert.equal(diagram.renderVals().iosSelected, true);
-assert.equal(diagram.renderVals().webSelected, false);
-assert.match(diagram.renderVals().diagramLabel, /iOS application/);
-diagram.renderVals().chooseWeb();
-assert.equal(diagram.renderVals().webSelected, true);
-assert.match(diagram.renderVals().diagramLabel, /website/);
-diagram.renderVals().toggleMotion();
-assert.equal(diagram.renderVals().motionState, 'paused');
-assert.equal(diagram.renderVals().motionControlLabel, 'Play all diagram animations');
-diagram.renderVals().toggleMotion();
-assert.equal(diagram.renderVals().motionState, 'playing');
-preferenceListener({matches:true});
-assert.equal(diagram.renderVals().motionButtonLabel, 'Motion off');
-assert.equal(diagram.renderVals().reducedMotion, true);
-diagram.renderVals().toggleMotion();
-assert.equal(diagram.renderVals().motionState, 'paused');
-diagram.componentWillUnmount();
-assert.equal(listenerRemoved, true);
-console.log('PASS: diagram paths, accessible labels, play/pause, reduced-motion changes, and listener cleanup.');
 
 const examples = new sandbox.ComponentForCheck();
 for(const match of source.matchAll(/\{\{\s*(\w+)\s*\}\}/g)) {
   if (!['true','false'].includes(match[1])) assert.notEqual(examples.renderVals()[match[1]], undefined, match[1]);
 }
 console.log('PASS: complete template bindings.');
+(async () => {
+  let copied = '';
+  sandbox.navigator.clipboard.writeText = async text => { copied = text; };
+  const component = new sandbox.ComponentForCheck();
+  const values = {projectType:'iOS design', name:'Ana', email:'ana@example.com', details:'A clear app & website'};
+  const fields = Object.fromEntries(Object.entries(values).map(([name, value]) => [name, {value}]));
+  const form = { fields, elements: {namedItem: name => fields[name]}, reportValidity: () => true };
+  await component.renderVals().copyBrief({currentTarget:{form}});
+  assert.match(copied, /A clear app & website/);
+  assert.equal(component.state.manualCopy, false);
+  assert.match(component.state.contactStatus, /Nothing has been sent/);
+  sandbox.navigator.clipboard.writeText = async () => { throw new Error('permission denied'); };
+  await component.renderVals().copyBrief({currentTarget:{form}});
+  assert.equal(component.state.manualCopy, true);
+  assert.equal(component.state.briefText, copied);
+  assert.match(component.state.contactStatus, /Automatic copying is unavailable/);
+  sandbox.navigator.clipboard = undefined;
+  await component.renderVals().copyBrief({currentTarget:{form}});
+  assert.equal(component.state.manualCopy, true);
+  console.log('PASS: copy success, denied/absent clipboard fallback, and accurate contact status.');
+})().catch(error => { console.error(error); process.exitCode = 1; });

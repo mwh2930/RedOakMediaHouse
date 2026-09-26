@@ -31,7 +31,10 @@ assert 'sc-camel-on-click=' in template and 'sc-camel-on-submit=' in template
 assert 'sc-camel-view-box=' in template
 assert 'sc-camel-preserve-aspect-ratio=' in template
 assert 'prefers-reduced-motion' in template and 'forced-colors' in template
-assert 'opacity:0' not in source.split('.route-flow')[0], 'Content must not depend on entrance animations'
+assert 'toggleGlow' in source and 'animation-play-state:paused' in source, 'Continuous glow needs a pause control'
+assert 'app-stage' not in source and 'Daybook' not in source
+assert 'Design for Apple iOS' in source
+assert 'role="status"' in source
 
 class Inspect(HTMLParser):
     def __init__(self):
@@ -53,7 +56,7 @@ for target in page.controls: assert target in page.ids, 'Missing controlled diag
 for target in re.findall(r'url\(#([\w-]+)\)', template): assert target in page.ids, target
 for src in page.srcs: assert src in manifest or src.startswith('data:'), 'Unbundled resource: '+src
 for field in page.inputs: assert field.get('name'), 'Missing form field name'
-assert {'name','email','details','projectType'} == {x['name'] for x in page.inputs}
+assert {'name','email','details','projectType','manualBrief'} == {x['name'] for x in page.inputs}
 for data in manifest.values():
     binary=base64.b64decode(data['data'], validate=True)
     if data.get('compressed'): binary=gzip.decompress(binary)

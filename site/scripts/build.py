@@ -14,6 +14,7 @@ shell = (SOURCE / 'bundle-shell.html').read_text()
 design_system = (SOURCE / 'bundle-design-system.html').read_text()
 source = re.sub(r'<link rel="stylesheet" href="_ds/[^\"]+">\s*<script src="_ds/[^\"]+"></script>', lambda _: design_system, source, count=1)
 assets = {
+    'assets/red-oak-logo.png': ('redoak-light-logo', ROOT / 'assets/red-oak-logo.png'),
     './support.js': ('b00552e6-6e35-4e57-85cf-e4033c98691d', SOURCE / 'support.js'),
     'assets/red-oak-logo-reversed.png': ('3029a901-48f9-49ee-b16a-30d50459f24f', ROOT / 'assets/red-oak-logo-reversed.png'),
     'assets/hero-iphone.png': ('300a7f8d-3d74-4c43-a772-c01eaa2c1eb3', ROOT / 'assets/hero-iphone.png'),
@@ -29,8 +30,8 @@ for url, (asset_id, path) in assets.items():
     manifest[asset_id]['data'] = base64.b64encode(data).decode('ascii')
     source = source.replace('src="' + url + '"', 'src="' + asset_id + '"')
 # The original DC export preserves camel-case event attributes through HTML parsing.
-source = source.replace('onSubmit=', 'sc-camel-on-submit=').replace('onClick=', 'sc-camel-on-click=').replace('viewBox=', 'sc-camel-view-box=').replace('preserveAspectRatio=', 'sc-camel-preserve-aspect-ratio=')
-for attr, encoded in {'markerWidth':'marker-width','markerHeight':'marker-height','refX':'ref-x','refY':'ref-y','markerUnits':'marker-units'}.items():
+source = source.replace('onPointerMove=', 'sc-camel-on-pointer-move=').replace('onPointerLeave=', 'sc-camel-on-pointer-leave=').replace('onSubmit=', 'sc-camel-on-submit=').replace('onClick=', 'sc-camel-on-click=').replace('readOnly=', 'sc-camel-read-only=').replace('viewBox=', 'sc-camel-view-box=').replace('preserveAspectRatio=', 'sc-camel-preserve-aspect-ratio=')
+for attr, encoded in {'pathLength':'path-length','markerWidth':'marker-width','markerHeight':'marker-height','refX':'ref-x','refY':'ref-y','markerUnits':'marker-units'}.items():
     source = source.replace(attr + '=', 'sc-camel-' + encoded + '=')
 def safe_json(value):
     return json.dumps(value, ensure_ascii=True, separators=(',', ':')).replace('<', '\\u003c')
